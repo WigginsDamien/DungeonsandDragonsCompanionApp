@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1093308370045",
+    "firebase_url": "https://dungeons-and-dragons-comp-app.firebaseio.com",
+    "project_id": "dungeons-and-dragons-comp-app",
+    "storage_bucket": "dungeons-and-dragons-comp-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093308370045:android:3aebf36b495af4d6",
+        "android_client_info": {
+          "package_name": "com.harrowedtale.dungeonsanddragonscompanionapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093308370045-2f8ca0bmh04jsn61h9qus0239pir9af9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE7vETWLTR1d7XiOjyGYdrE_cj2i-mnzs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
