@@ -3,10 +3,23 @@
 This Android application that runs different interfaces: Dungeon master and player. Each section has their own functions that they can perform.
 
 Dungeon Master:
-* 
+* List of all mnonsters
+* List of all spells
+* List of all items
+* List of all equipment
+* List of all feats
+* Index of races
+* Index of classes
+* Rulebook
+* Create homebrew content
+* Pictures of locations
  
 Players:
-* 
+* Interactive character sheet
+* Dice roller
+* List of all feats
+* Spellbook
+* Owned equipment list
 
 ## Built With
 
