@@ -3,7 +3,7 @@
 This Android application that runs different interfaces: Dungeon master and player. Each section has their own functions that they can perform.
 
 Dungeon Master:
-* List of all mnonsters
+* List of all monsters
 * List of all spells
 * List of all items
 * List of all equipment
