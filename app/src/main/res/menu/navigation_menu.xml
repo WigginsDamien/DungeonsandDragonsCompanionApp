@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/player_mode"
+        android:title="@string/player"
+        android:textColor="@color/colorAccent" />
+
+    <item android:id="@+id/dungeon_master_mode"
+        android:title="@string/dungeon_master"
+        android:textColor="@color/colorAccent" />
+</menu>
