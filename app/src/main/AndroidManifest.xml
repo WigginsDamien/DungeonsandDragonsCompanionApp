@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MonsterActivity" android:label="Bestiary"/>
+        <activity android:name=".FullMonsterActivity" />
     </application>
 
 </manifest>
