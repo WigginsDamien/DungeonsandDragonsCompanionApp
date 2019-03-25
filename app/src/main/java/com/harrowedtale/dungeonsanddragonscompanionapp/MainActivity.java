@@ -1,11 +1,14 @@
 package com.harrowedtale.dungeonsanddragonscompanionapp;
 
+import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ListView;
@@ -41,6 +44,22 @@ public class MainActivity extends AppCompatActivity {
 
         GridView gridView = findViewById(R.id.menu_list);
         gridView.setAdapter(adapter);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0)//For bestiary
+                {
+                    Intent bestiary = new Intent(MainActivity.this, MonsterActivity.class);
+                    startActivity(bestiary);
+                }
+                else if(position == 2)//For the spells
+                {
+                    Intent spells = new Intent(MainActivity.this, SpellActivity.class);
+                    startActivity(spells);
+                }
+            }
+        });
     }
 
     @Override

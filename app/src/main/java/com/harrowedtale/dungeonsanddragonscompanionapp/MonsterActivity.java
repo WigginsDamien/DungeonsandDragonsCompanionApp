@@ -44,14 +44,10 @@ public class MonsterActivity extends AppCompatActivity {
 
         adapter.setOnItemClickListener(new MonsterAdapter.ClickListener() {
             @Override
-            public void onItemClick(int position, View v) {
-            /*    Fragment newfrag = new BestiaryFull();
-                FragmentTransaction display_monster = getSupportFragmentManager().beginTransaction();
-                display_monster.add(R.id.test, newfrag).commit();*/
+            public void onItemClick(int position, View v, String monster) {
                 Intent monster_display = new Intent(MonsterActivity.this, FullMonsterActivity.class);
-                monster_display.putExtra("Name", Monsters.getId());
+                monster_display.putExtra("Name", monster);
                 startActivity(monster_display);
-                //Toast.makeText(MonsterActivity.this, "bungus", Toast.LENGTH_SHORT).show(); //used for testing
             }
         });
     }

@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     android:longClickable="true"
     android:orientation="horizontal"
-    android:outlineAmbientShadowColor="@color/colorAccent"
     android:padding="8dp"
     android:background="@drawable/recyclerview_border">
 

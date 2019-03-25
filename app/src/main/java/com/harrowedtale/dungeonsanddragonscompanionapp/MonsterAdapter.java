@@ -52,7 +52,8 @@ public class MonsterAdapter extends FirestoreRecyclerAdapter<MonsterObject, Mons
 
         @Override
         public void onClick(View v) {
-            clicklistener.onItemClick(getAdapterPosition(), v);
+            String monster_name = getSnapshots().getSnapshot(getAdapterPosition()).getId();
+            clicklistener.onItemClick(getAdapterPosition(), v, monster_name);
         }
 
     }
@@ -61,6 +62,6 @@ public class MonsterAdapter extends FirestoreRecyclerAdapter<MonsterObject, Mons
         MonsterAdapter.clicklistener = clicklistener;
     }
     public interface ClickListener {
-        void onItemClick(int position, View v);
+        void onItemClick(int position, View v, String monster);
     }
 }

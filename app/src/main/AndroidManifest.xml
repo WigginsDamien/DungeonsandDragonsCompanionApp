@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".MonsterActivity" android:label="Bestiary"/>
         <activity android:name=".FullMonsterActivity" />
+        <activity android:name=".SpellActivity" />
+        <activity android:name=".FullSpellActivity" />
     </application>
 
 </manifest>
