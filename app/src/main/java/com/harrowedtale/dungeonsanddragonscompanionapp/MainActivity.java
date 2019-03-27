@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     String[] menuOptions = {
             "Bestiary", "Items", "Spells",
             "Locations", "Classes", "Rules",
-            "Feats", "Races", "Custom Items"
+            "Feats", "Races", "Custom Items","Character Sheets"
     };
 
     @Override
@@ -57,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
                 {
                     Intent spells = new Intent(MainActivity.this, SpellActivity.class);
                     startActivity(spells);
+                }
+                else if(position == 9)
+                {
+                    Intent characterSheet = new Intent(MainActivity.this, CharacterSheet.class);
+                    startActivity(characterSheet);
                 }
             }
         });

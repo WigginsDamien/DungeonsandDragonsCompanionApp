@@ -7,4 +7,5 @@
     <string name="player">Player</string>
     <string name="dungeon_master">Dungeon Master</string>
     <string name="beast">beast</string>
+    <string name="submit">Submit</string>
 </resources>
