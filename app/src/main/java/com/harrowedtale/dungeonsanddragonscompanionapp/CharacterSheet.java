@@ -12,20 +12,27 @@ import android.widget.TextView;
 import android.content.Context;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 
 public class CharacterSheet extends AppCompatActivity {
     Button nameButton;
     EditText characterName;
     TextView mText;
-    String filename = "myfile";
+    String buffdude;
     String fileContents = "Hello world!";
     FileOutputStream outputStream;
     //File file = new File(context.getFilesDir(), filename);
 
+    //To view created files on android studio go to view -> Tool Windows -> Device File Explorer
+    //Files are created in the data/data/com.harrowedtale.dungeonsanddragonscompanionapp/files
 
 
 
@@ -38,10 +45,12 @@ public class CharacterSheet extends AppCompatActivity {
         nameButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 characterName   = (EditText)findViewById(R.id.characterName);
-                mText = (TextView)findViewById(R.id.Title);
-                mText.setText("Welcome "+ characterName.getText().toString()+"!");
+
                 fileContents=characterName.getText().toString();
-                writeToFile("Testia Wizard of Testing");
+                writeToFile("{ \"name\":" + "\"" +fileContents+ "\"" + " }" );
+                buffdude=read_file("character1.txt");
+                mText = (TextView)findViewById(R.id.Title);
+                mText.setText("Welcome "+ buffdude+"!");
             }
         });
     }
@@ -51,6 +60,8 @@ public class CharacterSheet extends AppCompatActivity {
 
 
         try {
+            //Context.MODE_PRIVATE creates a new file every time, this is what we want to do for the character creation wizard
+            //for viewing/editing existing files we are going to need to use Context.MODE_APPEND
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.openFileOutput("character1.txt", Context.MODE_PRIVATE));
             outputStreamWriter.write(data);
             outputStreamWriter.close();
@@ -60,6 +71,9 @@ public class CharacterSheet extends AppCompatActivity {
         catch (IOException e) {
             Log.e("Exception", "File write failed: " + e.toString());
         }
+
+        //This is for if we want to store a character in its own unique folder
+
         /*
         File directory = new File(this.getFilesDir()+File.separator+"MyFolder");
 
@@ -89,6 +103,24 @@ public class CharacterSheet extends AppCompatActivity {
         }
         */
     }
-
+    public String read_file(String filename) {
+        try {
+            FileInputStream fis = this.openFileInput(filename);
+            InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+            BufferedReader bufferedReader = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                sb.append(line).append("\n");
+            }
+            return sb.toString();
+        } catch (FileNotFoundException e) {
+            return "";
+        } catch (UnsupportedEncodingException e) {
+            return "";
+        } catch (IOException e) {
+            return "";
+        }
+    }
     }
 
