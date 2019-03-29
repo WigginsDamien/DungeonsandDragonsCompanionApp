@@ -47,7 +47,8 @@ public class CharacterSheet extends AppCompatActivity {
                 characterName   = (EditText)findViewById(R.id.characterName);
 
                 fileContents=characterName.getText().toString();
-                writeToFile("{ \"name\":" + "\"" +fileContents+ "\"" + " }" );
+                //writeToFile("{ \"name\":" + "\"" +fileContents+ "\"" + " }" );
+                writeToFile(jsonfy("name",fileContents));
                 buffdude=read_file("character1.txt");
                 mText = (TextView)findViewById(R.id.Title);
                 mText.setText("Welcome "+ buffdude+"!");
@@ -122,5 +123,12 @@ public class CharacterSheet extends AppCompatActivity {
             return "";
         }
     }
+
+   public String jsonfy(String catagory, String input){
+        String jsonString;
+        jsonString="{ \"" +catagory +"\":" + "\"" +input+ "\"" + " }";
+        return jsonString;
+   }
+
     }
 
