@@ -48,8 +48,12 @@ public class CharacterSheet extends AppCompatActivity {
 
                 fileContents=characterName.getText().toString();
                 //writeToFile("{ \"name\":" + "\"" +fileContents+ "\"" + " }" );
-                writeToFile(jsonfy("name",fileContents));
+                writeToNewFile(jsonfy("name",fileContents));
+
+
+                writeToFile(jsonfy("class","cleric"));
                 buffdude=read_file("character1.txt");
+
                 mText = (TextView)findViewById(R.id.Title);
                 mText.setText("Welcome "+ buffdude+"!");
             }
@@ -57,7 +61,7 @@ public class CharacterSheet extends AppCompatActivity {
     }
 
 
-    private void writeToFile(String data) {
+    private void writeToNewFile(String data) {
 
 
         try {
@@ -104,6 +108,22 @@ public class CharacterSheet extends AppCompatActivity {
         }
         */
     }
+
+    private void writeToFile(String data) {
+
+
+        try {
+            //for viewing/editing existing files we are going to need to use Context.MODE_APPEND
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.openFileOutput("character1.txt", Context.MODE_APPEND));
+            outputStreamWriter.write(data);
+            outputStreamWriter.close();
+            Toast.makeText(getBaseContext(), "File saved successfully!",
+                    Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            Log.e("Exception", "File write failed: " + e.toString());
+        }
+    }
+
     public String read_file(String filename) {
         try {
             FileInputStream fis = this.openFileInput(filename);
