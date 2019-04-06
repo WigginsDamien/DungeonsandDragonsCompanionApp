@@ -8,8 +8,8 @@
     <string name="dungeon_master">Dungeon Master</string>
     <string name="beast">beast</string>
     <string-array name="monsterfilter_spinner">
-        <item>Challenge Rating</item>
         <item>Name</item>
+        <item>Challenge Rating</item>
         <item>Type</item>
     </string-array>
 </resources>
