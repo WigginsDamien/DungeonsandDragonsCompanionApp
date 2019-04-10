@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <GridView
             android:id="@+id/menu_list"
             android:layout_width="match_parent"
@@ -22,7 +23,11 @@
             android:horizontalSpacing="10dp"
             android:stretchMode="columnWidth"
             android:gravity="center">
+
         </GridView>
+
+
+
     </LinearLayout>
 
     <android.support.design.widget.NavigationView
@@ -32,5 +37,8 @@
         app:theme="@style/navStyle"
         android:layout_gravity="start"
         android:background="@color/colorAccent">
+
     </android.support.design.widget.NavigationView>
+
+
 </android.support.v4.widget.DrawerLayout>

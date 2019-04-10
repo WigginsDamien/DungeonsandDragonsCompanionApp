@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
     String[] menuOptions = {
             "Bestiary", "Items", "Spells",
             "Locations", "Classes", "Rules",
-            "Feats", "Races", "Custom Items"
+            "Feats", "Races", "Custom Items",
+            "Dice Roller"
     };
 
     @Override
@@ -57,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
                 {
                     Intent spells = new Intent(MainActivity.this, SpellActivity.class);
                     startActivity(spells);
+                }
+                else if(position == 9)//For the dice roller
+                {
+                    Intent diceRoller = new Intent(MainActivity.this, DiceActivity.class);
+                    startActivity(diceRoller);
                 }
             }
         });

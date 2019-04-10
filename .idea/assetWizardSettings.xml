@@ -3,6 +3,11 @@
   <component name="WizardSettings">
     <option name="children">
       <map>
+        <entry key="imageWizard">
+          <value>
+            <PersistentState />
+          </value>
+        </entry>
         <entry key="vectorWizard">
           <value>
             <PersistentState>
@@ -14,8 +19,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_d4" />
-                            <entry key="sourceFile" value="C:\Users\adria\OneDrive\Desktop\d4.svg" />
+                            <entry key="outputName" value="ic_d20" />
+                            <entry key="sourceFile" value="C:\Users\adria\OneDrive\Desktop\d20.svg" />
                           </map>
                         </option>
                       </PersistentState>
