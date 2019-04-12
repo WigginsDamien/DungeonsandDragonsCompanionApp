@@ -1,19 +1,17 @@
 package com.harrowedtale.dungeonsanddragonscompanionapp;
 
 
+import android.content.Context;
 import android.os.Bundle;
-
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.content.Context;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -21,6 +19,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 public class CharacterSheet extends AppCompatActivity {
     Button nameButton;
@@ -41,10 +40,10 @@ public class CharacterSheet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.character_sheet);
 
-        nameButton = (Button)findViewById(R.id.nameButton);
+        nameButton = findViewById(R.id.nameButton);
         nameButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                characterName   = (EditText)findViewById(R.id.characterName);
+                characterName   = findViewById(R.id.characterName);
 
                 fileContents=characterName.getText().toString();
                 //writeToFile("{ \"name\":" + "\"" +fileContents+ "\"" + " }" );
@@ -54,7 +53,7 @@ public class CharacterSheet extends AppCompatActivity {
                 writeToFile(jsonfy("class","cleric"));
                 buffdude=read_file("character1.txt");
 
-                mText = (TextView)findViewById(R.id.Title);
+                mText = findViewById(R.id.Title);
                 mText.setText("Welcome "+ buffdude+"!");
             }
         });
@@ -62,8 +61,6 @@ public class CharacterSheet extends AppCompatActivity {
 
 
     private void writeToNewFile(String data) {
-
-
         try {
             //Context.MODE_PRIVATE creates a new file every time, this is what we want to do for the character creation wizard
             //for viewing/editing existing files we are going to need to use Context.MODE_APPEND
@@ -110,8 +107,6 @@ public class CharacterSheet extends AppCompatActivity {
     }
 
     private void writeToFile(String data) {
-
-
         try {
             //for viewing/editing existing files we are going to need to use Context.MODE_APPEND
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.openFileOutput("character1.txt", Context.MODE_APPEND));
@@ -127,7 +122,7 @@ public class CharacterSheet extends AppCompatActivity {
     public String read_file(String filename) {
         try {
             FileInputStream fis = this.openFileInput(filename);
-            InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+            InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
             BufferedReader bufferedReader = new BufferedReader(isr);
             StringBuilder sb = new StringBuilder();
             String line;
@@ -144,11 +139,10 @@ public class CharacterSheet extends AppCompatActivity {
         }
     }
 
-   public String jsonfy(String catagory, String input){
+   public String jsonfy(String category, String input){
         String jsonString;
-        jsonString="{ \"" +catagory +"\":" + "\"" +input+ "\"" + " }";
+        jsonString="{ \"" +category +"\":" + "\"" +input+ "\"" + " }";
         return jsonString;
    }
-
-    }
+}
 

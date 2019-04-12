@@ -1,4 +1,3 @@
-
 <resources>
     <string name="app_name">Dungeons and Dragons Companion App</string>
     <string name="welcome_to_dungeons_and_dragons">Welcome To Dungeons and Dragons</string>
@@ -8,4 +7,9 @@
     <string name="dungeon_master">Dungeon Master</string>
     <string name="beast">beast</string>
     <string name="submit">Submit</string>
+    <string name="name_ph">Character Name</string>
+    <string name="class_ph">Class</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
