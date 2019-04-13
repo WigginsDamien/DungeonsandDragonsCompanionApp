@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:id="@+id/drawerLayout"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/colorPrimary">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,16 +18,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:columnWidth="90dp"
-            android:numColumns="2"
-            android:verticalSpacing="10dp"
+            android:gravity="center"
             android:horizontalSpacing="10dp"
+            android:numColumns="2"
             android:stretchMode="columnWidth"
-            android:gravity="center">
-
-        </GridView>
-
-
-
+            android:verticalSpacing="10dp"></GridView>
     </LinearLayout>
 
     <android.support.design.widget.NavigationView
@@ -37,8 +32,5 @@
         app:theme="@style/navStyle"
         android:layout_gravity="start"
         android:background="@color/colorAccent">
-
     </android.support.design.widget.NavigationView>
-
-
 </android.support.v4.widget.DrawerLayout>
