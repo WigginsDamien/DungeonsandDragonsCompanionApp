@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".GrimoireActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,8 +24,8 @@
         <activity android:name=".SpellActivity" />
         <activity android:name=".FullSpellActivity" />
         <activity android:name=".CharacterSheet" />
-        <activity android:name=".NewUserWizard"></activity>
-        <activity android:name=".DiceActivity"></activity>
+        <activity android:name=".NewUserWizard" />
+        <activity android:name=".DiceActivity" />
     </application>
 
 </manifest>

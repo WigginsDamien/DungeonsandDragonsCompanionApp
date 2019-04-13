@@ -18,11 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mToggle;
 
     String[] menuOptions = {
-            "Bestiary", "Items", "Spells",
-            "Locations", "Classes", "Rules",
-            "Feats", "Races", "Custom Items",
-            "Dice Roller", "Feats", "Races",
-            "Custom Items","Character Sheets",
+            "Grimoire", "Custom Items",
+            "Dice Roller", "Character Sheets",
             "New User Wizard"
     };
 
@@ -50,27 +47,28 @@ public class MainActivity extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 0)//For bestiary
+                if(position == 0)//For grimoire
                 {
-                    Intent bestiary = new Intent(MainActivity.this, MonsterActivity.class);
-                    startActivity(bestiary);
+                    Intent grimoire = new Intent(MainActivity.this, GrimoireActivity.class);
+                    startActivity(grimoire);
                 }
-                else if(position == 2)//For the spells
+                if(position == 1)//For custom items
                 {
-                    Intent spells = new Intent(MainActivity.this, SpellActivity.class);
-                    startActivity(spells);
+                    //TODO add in the correct custom items class
+                    //Intent customItems = new Intent(MainActivity.this, customItems.class);
+                    //startActivity(customItems);
                 }
-                else if(position == 9)//For the dice roller
+                else if(position == 2)//For the dice roller
                 {
                     Intent diceRoller = new Intent(MainActivity.this, DiceActivity.class);
                     startActivity(diceRoller);
                 }
-                else if(position == 13)
+                else if(position == 3)//For the character sheets roller
                 {
                     Intent characterSheet = new Intent(MainActivity.this, CharacterSheet.class);
                     startActivity(characterSheet);
                 }
-                else if(position == 14)
+                else if(position == 4)//For the new character creation wizard roller
                 {
                     Intent newUserWizard = new Intent(MainActivity.this, NewUserWizard.class);
                     startActivity(newUserWizard);

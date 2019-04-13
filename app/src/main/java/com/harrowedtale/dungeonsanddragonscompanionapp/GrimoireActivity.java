@@ -1,0 +1,86 @@
+package com.harrowedtale.dungeonsanddragonscompanionapp;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
+
+public class GrimoireActivity extends AppCompatActivity {
+
+    String[] menuOptions = {
+            "Bestiary", "Items", "Spells",
+            "Locations", "Classes",
+            "Races", "Feats", "Rules"
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_grimoire);
+
+        ArrayAdapter adapter = new ArrayAdapter<>(this, R.layout.mainmenu_list_item, menuOptions);
+
+        GridView gridView = findViewById(R.id.menu_list);
+        gridView.setAdapter(adapter);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0)//For bestiary
+                {
+                    Intent bestiary = new Intent(GrimoireActivity.this, MonsterActivity.class);
+                    startActivity(bestiary);
+                }
+                else if(position == 1)//For the Items
+                {   //TODO Need to put in the correct item activity name
+                    //Intent items = new Intent(GrimoireActivity.this, ItemActivity.class);
+                    //startActivity(items);
+                }
+                else if(position == 2)//For the spells
+                {
+                    Intent spells = new Intent(GrimoireActivity.this, SpellActivity.class);
+                    startActivity(spells);
+                }
+                else if(position == 3)//For the Locations
+                {
+                    //TODO Need to put in the correct location activity name
+                    //Intent locations = new Intent(GrimoireActivity.this, LocationsActivity.class);
+                    //startActivity(locations);
+                }
+                else if(position == 4)//For the classes
+                {
+                    //TODO Need to put in the correct classes activity name
+                    //Intent classes = new Intent(GrimoireActivity.this, classesActivity.class);
+                    //startActivity(classes);
+                }
+                else if(position == 5)//For the races
+                {
+                    //TODO Need to put in the correct races activity name
+                    //Intent races = new Intent(GrimoireActivity.this, racesActivity.class);
+                    //startActivity(races);
+                }
+                else if(position == 6)//For the feats
+                {
+                    //TODO Need to put in the correct feats activity name
+                    //Intent feats = new Intent(GrimoireActivity.this, featsActivity.class);
+                    //startActivity(feats);
+                }
+                else if(position == 7)//For the rules
+                {
+                    //TODO Need to put in the correct rules activity name
+                    //Intent rules = new Intent(GrimoireActivity.this, rulesActivity.class);
+                    //startActivity(rules);
+                }
+
+
+            }
+        });
+    }
+}
