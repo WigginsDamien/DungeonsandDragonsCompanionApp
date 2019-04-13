@@ -1,17 +1,16 @@
 package com.harrowedtale.dungeonsanddragonscompanionapp;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
             "Bestiary", "Items", "Spells",
             "Locations", "Classes", "Rules",
             "Feats", "Races", "Custom Items",
-            "Dice Roller"
+            "Dice Roller", "Feats", "Races",
+            "Custom Items","Character Sheets",
+            "New User Wizard"
     };
 
     @Override
@@ -63,6 +64,16 @@ public class MainActivity extends AppCompatActivity {
                 {
                     Intent diceRoller = new Intent(MainActivity.this, DiceActivity.class);
                     startActivity(diceRoller);
+                }
+                else if(position == 13)
+                {
+                    Intent characterSheet = new Intent(MainActivity.this, CharacterSheet.class);
+                    startActivity(characterSheet);
+                }
+                else if(position == 14)
+                {
+                    Intent newUserWizard = new Intent(MainActivity.this, NewUserWizard.class);
+                    startActivity(newUserWizard);
                 }
             }
         });
