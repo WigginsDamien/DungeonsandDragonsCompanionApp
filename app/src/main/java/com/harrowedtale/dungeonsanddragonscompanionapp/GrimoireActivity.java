@@ -50,9 +50,8 @@ public class GrimoireActivity extends AppCompatActivity {
                 }
                 else if(position == 3)//For the Locations
                 {
-                    //TODO Need to put in the correct location activity name
-                    //Intent locations = new Intent(GrimoireActivity.this, LocationsActivity.class);
-                    //startActivity(locations);
+                    Intent locations = new Intent(GrimoireActivity.this, LocationActivity.class);
+                    startActivity(locations);
                 }
                 else if(position == 4)//For the classes
                 {

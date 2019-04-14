@@ -22,7 +22,8 @@
             android:horizontalSpacing="10dp"
             android:numColumns="2"
             android:stretchMode="columnWidth"
-            android:verticalSpacing="10dp"></GridView>
+            android:verticalSpacing="10dp">
+        </GridView>
     </LinearLayout>
 
     <android.support.design.widget.NavigationView
