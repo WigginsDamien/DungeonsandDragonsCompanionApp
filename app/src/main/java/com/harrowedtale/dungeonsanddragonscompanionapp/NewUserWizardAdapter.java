@@ -4,7 +4,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-
 import com.harrowedtale.dungeonsanddragonscompanionapp.wizard_fragments.WizardFragment;
 import com.harrowedtale.dungeonsanddragonscompanionapp.wizard_fragments.fragment_wizard_1;
 import com.harrowedtale.dungeonsanddragonscompanionapp.wizard_fragments.fragment_wizard_2;
