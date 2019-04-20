@@ -8,9 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
+
+
 public class ViewPagerAdapter extends PagerAdapter {
     private Context context;
     private String[] imageUrls;
+    private String[] titles = {
+        "Altar", "Castle", "Cave", "Desert", "Field", "Forest", "Forked Road", "Keep",
+            "Mountain", "Port", "River", "Ruins", "Village", "Volcano"
+    };
 
     ViewPagerAdapter(Context context, String[] imageUrls){
         this.context = context;

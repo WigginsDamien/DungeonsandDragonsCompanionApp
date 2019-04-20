@@ -13,6 +13,7 @@
     <string name="d20">d20</string>
     <string name="minus">—</string>
     <string name="plus">+</string>
+    <string name="action_search">Search</string>
 
     <string-array name="monsterfilter_spinner">
         <item>Name</item>

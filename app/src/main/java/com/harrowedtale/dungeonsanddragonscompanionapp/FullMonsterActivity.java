@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
@@ -27,6 +26,7 @@ public class FullMonsterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.monster_full);
         monsterdata = findViewById(R.id.monsterData);
+
         Intent monster_display = getIntent();
         String Monster_name = monster_display.getStringExtra("Name");
         setTitle(Monster_name);//Sets page title to the respective monster
@@ -113,6 +113,7 @@ public class FullMonsterActivity extends AppCompatActivity {
         });
 
     }
+
 
 }
 

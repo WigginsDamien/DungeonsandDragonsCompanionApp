@@ -10,17 +10,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.EditText;
 
 public class SpellActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference Spells = db.collection("Spells");
     private SpellAdapter adapter;
+    private EditText mSearchField;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.spellpage_layout);
+
+        mSearchField = (EditText) findViewById(R.id.search_field);
+
         setUpRecyclerView();
+
+
     }
 
     private void setUpRecyclerView() {

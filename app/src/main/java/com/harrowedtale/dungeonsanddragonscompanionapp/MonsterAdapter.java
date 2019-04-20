@@ -12,8 +12,10 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 public class MonsterAdapter extends FirestoreRecyclerAdapter<MonsterObject, MonsterAdapter.MonsterHolder> {
     private static ClickListener clicklistener;
 
+
     public MonsterAdapter(@NonNull FirestoreRecyclerOptions<MonsterObject> options){
         super(options);
+
     }
 
     @Override
