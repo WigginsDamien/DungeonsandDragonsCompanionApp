@@ -21,15 +21,13 @@
             android:background="@drawable/search_layout"
             android:ems="10"
             android:hint="Search here"
-            android:inputType="textPersonName"
+            android:inputType="textCapWords"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
             android:paddingRight="20dp"
             android:paddingBottom="10dp"
             android:textColor="#999999"
             android:textSize="16sp" />
-
-
     </LinearLayout>
 
 
@@ -50,7 +48,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp" />
-
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
