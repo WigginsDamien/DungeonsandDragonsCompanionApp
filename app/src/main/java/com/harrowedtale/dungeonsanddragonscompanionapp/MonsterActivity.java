@@ -27,7 +27,7 @@ public class MonsterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.monsterpage_layout);
-        Spinner monstersort_spinner = findViewById(R.id.monstersort_spinner);
+        monstersort_spinner = findViewById(R.id.monstersort_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.monsterfilter_spinner, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         monstersort_spinner.setAdapter(adapter);

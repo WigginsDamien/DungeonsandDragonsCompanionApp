@@ -33,12 +33,50 @@ public class ViewPagerAdapter extends PagerAdapter {
         ImageView imageView = new ImageView(context);
         Picasso.get().load(imageUrls[position]).fit().centerCrop().into(imageView);
         container.addView(imageView);
-
         return imageView;
     }
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View) object);
+    }
+
+    public CharSequence getPageTitle(int position) {
+        switch(position){
+            case 0:
+                return("Altar");
+            case 1:
+                return("Castle with Cathedral");
+            case 2:
+                return("Lit Cave");
+            case 3:
+                return("Desert");
+            case 4:
+                return("Wheat field");
+            case 5:
+                return("Forest");
+            case 6:
+                return("Path with field");
+            case 7:
+                return("Castle with Rook");
+            case 8:
+                return("Mountain");
+            case 9:
+                return("Castle wall and Port");
+            case 10:
+                return("River in a Forest");
+            case 11:
+                return("Ruins");
+            case 12:
+                return("Village");
+            case 13:
+                return("Volcano");
+            default:
+                return("Locations");
+        }
+    }
+
+    public Context getContext() {
+        return context;
     }
 }

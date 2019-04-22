@@ -29,6 +29,10 @@
         <activity android:name=".CharacterSheet" />
         <activity android:name=".NewUserWizard" />
         <activity android:name=".DiceActivity" />
+        <activity android:name=".FeatsActivity" />
+        <activity android:name=".PlayerClassActivity" />
+        <activity android:name=".RulesActivity" />
+        <activity android:name=".RulesSectionActivity" />
     </application>
 
 </manifest>
