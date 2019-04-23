@@ -4,18 +4,20 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
 import com.harrowedtale.dungeonsanddragonscompanionapp.wizard_fragments.WizardFragment;
 import com.harrowedtale.dungeonsanddragonscompanionapp.wizard_fragments.fragment_wizard_1;
 import com.harrowedtale.dungeonsanddragonscompanionapp.wizard_fragments.fragment_wizard_2;
 import com.harrowedtale.dungeonsanddragonscompanionapp.wizard_fragments.fragment_wizard_3;
+import com.harrowedtale.dungeonsanddragonscompanionapp.wizard_fragments.fragment_wizard_4;
 
 public class NewUserWizardAdapter extends FragmentPagerAdapter {
 
-    WizardFragment[] wizardPages = {new fragment_wizard_1(), new fragment_wizard_2(), new fragment_wizard_3()};
-    String [] wizardTitles = {"Basics", "Details", "Stats"};
+    private WizardFragment[] wizardPages = {new fragment_wizard_1(), new fragment_wizard_2(), new fragment_wizard_3(), new fragment_wizard_4()};
+    private String [] wizardTitles = {"Basics", "Details", "Stats", "Proficiencies"};
 
 
-    public NewUserWizardAdapter(FragmentManager fm) {
+    NewUserWizardAdapter(FragmentManager fm) {
         super(fm);
     }
 

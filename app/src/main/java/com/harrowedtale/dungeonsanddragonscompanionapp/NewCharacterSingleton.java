@@ -21,6 +21,12 @@ public class NewCharacterSingleton {
     private int wisdom;
     private int charisma;
 
+    //Step 4
+    private String prof1;
+    private String prof2;
+    private String prof3; //may be empty
+    private String prof4; //may be empty
+
     private NewCharacterSingleton(){
         //set defaults for all character values
         name = "default";
@@ -36,6 +42,11 @@ public class NewCharacterSingleton {
         intelligence = -1;
         wisdom = -1;
         charisma = -1;
+
+        prof1 = "default";
+        prof2 = "default";
+        prof3 = "default";
+        prof4 = "default";
     }
 
     public static NewCharacterSingleton getInstance(){
@@ -66,14 +77,126 @@ public class NewCharacterSingleton {
         charisma = ch;
     }
 
+    public void setWizardPageFour(String p1, String p2, String p3, String p4){
+        prof1 = p1;
+        prof2 = p2;
+
+        switch (getProficiencyCount())
+        {
+            case 2:
+                break;
+            case 3:
+                prof3 = p3;
+                break;
+            case 4:
+                prof3 = p3;
+                prof4 = p4;
+                break;
+            default:
+                //shouldn't happen
+                break;
+        }
+    }
+
     public String getName(){
         return name;
     }
-    public String getAlignment(){
-        return alignment;
+
+    public String getProf3() {
+        return prof3;
     }
-    public int getCharisma(){
-        return charisma;
+
+    public int getProficiencyCount(){
+        //this function returns the number of proficiencies a class gets to pick
+        int profCount = 0;
+
+        switch(character_class)
+        {
+            case "Barbarian":
+                profCount = 2;
+                break;
+            case "Bard":
+                profCount = 3;
+                break;
+            case "Cleric":
+                profCount = 2;
+                break;
+            case "Druid":
+                profCount = 2;
+                break;
+            case "Fighter":
+                profCount = 2;
+                break;
+            case "Monk":
+                profCount = 2;
+                break;
+            case "Paladin":
+                profCount = 2;
+                break;
+            case "Ranger":
+                profCount = 3;
+                break;
+            case "Rogue":
+                profCount = 4;
+                break;
+            case "Sorcerer":
+                profCount = 2;
+                break;
+            case "Warlock":
+                profCount = 2;
+                break;
+            case "Wizard":
+                profCount = 2;
+                break;
+        }
+
+        return profCount;
+    }
+
+    public int getClassProficiencies(){
+        int arrayId = 0;
+
+        switch(character_class)
+        {
+            case "Barbarian":
+                arrayId = R.array.barbarian_profs;
+                break;
+            case "Bard":
+                arrayId = R.array.bard_profs;
+                break;
+            case "Cleric":
+                arrayId = R.array.cleric_profs;
+                break;
+            case "Druid":
+                arrayId = R.array.druid_profs;
+                break;
+            case "Fighter":
+                arrayId = R.array.fighter_profs;
+                break;
+            case "Monk":
+                arrayId = R.array.monk_profs;
+                break;
+            case "Paladin":
+                arrayId = R.array.paladin_profs;
+                break;
+            case "Ranger":
+                arrayId = R.array.ranger_profs;
+                break;
+            case "Rogue":
+                arrayId = R.array.rogue_profs;
+                break;
+            case "Sorcerer":
+                arrayId = R.array.sorcerer_profs;
+                break;
+            case "Warlock":
+                arrayId = R.array.warlock_profs;
+                break;
+            case "Wizard":
+                arrayId = R.array.wizard_profs;
+                break;
+        }
+
+        return arrayId;
     }
 }
 

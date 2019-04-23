@@ -45,13 +45,13 @@ public class NewUserWizard extends AppCompatActivity {
                 if(((WizardFragment)wizardAdapter.getItem(viewPager.getCurrentItem())).areFieldsValid()){
                     //go to next page
                     if(viewPager.getCurrentItem() == wizardAdapter.getCount()-1){
-                        Toast.makeText(NewUserWizard.this, "Setup Done!", Toast.LENGTH_SHORT).show();
+                        NewCharacterSingleton newCharacter = NewCharacterSingleton.getInstance();
+                        Toast.makeText(NewUserWizard.this, "Setup Complete!", Toast.LENGTH_SHORT).show();
                         Intent mainMenu = new Intent(NewUserWizard.this, MainActivity.class);
                         startActivity(mainMenu);
                     }
                     else {
                         NewCharacterSingleton newCharacter = NewCharacterSingleton.getInstance();
-                        Toast.makeText(NewUserWizard.this, Integer.toString(newCharacter.getCharisma()), Toast.LENGTH_SHORT).show();
                         viewPager.setCurrentItem(getItem(+1), true);
                     }
                 }
@@ -70,7 +70,7 @@ public class NewUserWizard extends AppCompatActivity {
             if(position == 0){
                 backButton.setVisibility(View.GONE);
             }
-            else if(position == 2){
+            else if(position == 3){
                 nextButton.setText("Finish");
             }
             else{
