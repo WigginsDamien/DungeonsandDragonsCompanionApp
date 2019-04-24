@@ -1,6 +1,7 @@
 package com.harrowedtale.dungeonsanddragonscompanionapp.wizard_fragments;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ public class fragment_wizard_1 extends WizardFragment {
     Spinner classSpinner;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         //Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_wizard_1, container, false);
 
@@ -35,10 +36,15 @@ public class fragment_wizard_1 extends WizardFragment {
     @Override
     public boolean areFieldsValid() {
         //if true
-        NewCharacterSingleton newCharacter = NewCharacterSingleton.getInstance();
-        newCharacter.setWizardPageOne(nameField.getText().toString(), classSpinner.getSelectedItem().toString());
-        return true;
+        if(!(nameField.getText().toString().length() < 2)){
+            NewCharacterSingleton newCharacter = NewCharacterSingleton.getInstance();
+            newCharacter.setWizardPageOne(nameField.getText().toString(), classSpinner.getSelectedItem().toString());
+            return true;
+        }
+        else{
+            nameField.setError("Username must be at least 2 characters long.");
+        }
 
-        //else
+        return false;
     }
 }

@@ -1,6 +1,7 @@
 package com.harrowedtale.dungeonsanddragonscompanionapp.wizard_fragments;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ public class fragment_wizard_2 extends WizardFragment {
     Spinner raceSpinner;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         //Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_wizard_2, container, false);
 
@@ -39,10 +40,15 @@ public class fragment_wizard_2 extends WizardFragment {
     @Override
     public boolean areFieldsValid() {
         //if true
-        NewCharacterSingleton newCharacter = NewCharacterSingleton.getInstance();
-        newCharacter.setWizardPageTwo(Integer.valueOf(levelEditText.getText().toString()), alignmentSpinner.getSelectedItem().toString(), raceSpinner.getSelectedItem().toString());
-        return true;
+        if(!(levelEditText.getText().toString().equals("")) && !(Integer.valueOf(levelEditText.getText().toString()) < 1) && !(Integer.valueOf(levelEditText.getText().toString()) > 100)){
+            NewCharacterSingleton newCharacter = NewCharacterSingleton.getInstance();
+            newCharacter.setWizardPageTwo(Integer.valueOf(levelEditText.getText().toString()), alignmentSpinner.getSelectedItem().toString(), raceSpinner.getSelectedItem().toString());
+            return true;
+        }
+        else{
+            levelEditText.setError("Level must be between 1-100.");
+        }
 
-        //else
+        return false;
     }
 }

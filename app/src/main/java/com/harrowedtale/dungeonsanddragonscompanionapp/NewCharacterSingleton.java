@@ -102,8 +102,8 @@ public class NewCharacterSingleton {
         return name;
     }
 
-    public String getProf3() {
-        return prof3;
+    public String getCharacterClass(){
+        return character_class;
     }
 
     public int getProficiencyCount(){

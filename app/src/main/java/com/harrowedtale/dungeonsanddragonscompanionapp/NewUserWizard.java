@@ -30,6 +30,7 @@ public class NewUserWizard extends AppCompatActivity {
         viewPager.addOnPageChangeListener(listener);
 
         backButton = findViewById(R.id.back_button);
+        backButton.setVisibility(View.GONE); //back button should not exist until step 2
         nextButton = findViewById(R.id.next_button);
 
         //go back to previous fragment
@@ -71,11 +72,13 @@ public class NewUserWizard extends AppCompatActivity {
                 backButton.setVisibility(View.GONE);
             }
             else if(position == 3){
-                nextButton.setText("Finish");
+                //if on last step, set button to finish text
+                nextButton.setText(getText(R.string.finish_wiz));
             }
             else{
+                //reveal back button if not on first page, revert from 'final' to 'next'
                 backButton.setVisibility(View.VISIBLE);
-                nextButton.setText("Next");
+                nextButton.setText(getText(R.string.next_wiz));
             }
         }
 
