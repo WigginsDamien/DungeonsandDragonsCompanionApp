@@ -22,7 +22,6 @@ public class GrimoireActivity extends AppCompatActivity {
         setContentView(R.layout.activity_grimoire);
 
         ArrayAdapter adapter = new ArrayAdapter<>(this, R.layout.mainmenu_list_item, menuOptions);
-
         GridView gridView = findViewById(R.id.menu_list);
         gridView.setAdapter(adapter);
 
@@ -51,9 +50,8 @@ public class GrimoireActivity extends AppCompatActivity {
                 }
                 else if(position == 4)//For the classes
                 {
-                    //TODO Need to put in the correct classes activity name
-                    //Intent classes = new Intent(GrimoireActivity.this, classesActivity.class);
-                    //startActivity(classes);
+                    Intent classes = new Intent(GrimoireActivity.this, PlayerClassActivity.class);
+                    startActivity(classes);
                 }
                 else if(position == 5)//For the races
                 {
@@ -63,15 +61,13 @@ public class GrimoireActivity extends AppCompatActivity {
                 }
                 else if(position == 6)//For the feats
                 {
-                    //TODO Need to put in the correct feats activity name
-                    //Intent feats = new Intent(GrimoireActivity.this, featsActivity.class);
-                    //startActivity(feats);
+                    Intent feats = new Intent(GrimoireActivity.this, FeatsActivity.class);
+                    startActivity(feats);
                 }
                 else if(position == 7)//For the rules
                 {
-                    //TODO Need to put in the correct rules activity name
-                    //Intent rules = new Intent(GrimoireActivity.this, rulesActivity.class);
-                    //startActivity(rules);
+                    Intent rules = new Intent(GrimoireActivity.this, RulesActivity.class);
+                    startActivity(rules);
                 }
 
 
@@ -79,3 +75,4 @@ public class GrimoireActivity extends AppCompatActivity {
         });
     }
 }
+

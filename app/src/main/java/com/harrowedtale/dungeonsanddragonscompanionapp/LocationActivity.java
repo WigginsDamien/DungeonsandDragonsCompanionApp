@@ -3,6 +3,7 @@ package com.harrowedtale.dungeonsanddragonscompanionapp;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 public class LocationActivity extends AppCompatActivity {
 
     private String[] imageUrls = new String[]{
@@ -28,8 +29,26 @@ public class LocationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_location);
 
         ViewPager viewPager = findViewById(R.id.view_pager);
-        ViewPagerAdapter adapter = new ViewPagerAdapter(this, imageUrls);
+        final ViewPagerAdapter adapter = new ViewPagerAdapter(this, imageUrls);
         viewPager.setAdapter(adapter);
-        int i = 0;
+        setTitle(adapter.getPageTitle(0));
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+
+            }
+
+            @Override
+            public void onPageSelected(int i) {//updates page title based on current position in the array
+                setTitle(adapter.getPageTitle(i));
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
+        //   viewPager.addOnPageChangeListener(ViewPager.OnPageChangeListener listener);
+        int position = viewPager.getCurrentItem();
     }
 }

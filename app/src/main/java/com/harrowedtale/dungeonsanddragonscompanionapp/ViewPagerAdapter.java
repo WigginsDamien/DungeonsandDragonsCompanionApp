@@ -8,15 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
-
-
 public class ViewPagerAdapter extends PagerAdapter {
     private Context context;
     private String[] imageUrls;
-    private String[] titles = {
-        "Altar", "Castle", "Cave", "Desert", "Field", "Forest", "Forked Road", "Keep",
-            "Mountain", "Port", "River", "Ruins", "Village", "Volcano"
-    };
 
     ViewPagerAdapter(Context context, String[] imageUrls){
         this.context = context;
@@ -39,12 +33,50 @@ public class ViewPagerAdapter extends PagerAdapter {
         ImageView imageView = new ImageView(context);
         Picasso.get().load(imageUrls[position]).fit().centerCrop().into(imageView);
         container.addView(imageView);
-
         return imageView;
     }
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View) object);
+    }
+
+    public CharSequence getPageTitle(int position) {
+        switch(position){
+            case 0:
+                return("Altar");
+            case 1:
+                return("Castle");
+            case 2:
+                return("Cave");
+            case 3:
+                return("Desert");
+            case 4:
+                return("Field");
+            case 5:
+                return("Forest");
+            case 6:
+                return("Forked Road");
+            case 7:
+                return("Keep");
+            case 8:
+                return("Mountain");
+            case 9:
+                return("Port Town");
+            case 10:
+                return("River");
+            case 11:
+                return("Ruins");
+            case 12:
+                return("Village");
+            case 13:
+                return("Volcano");
+            default:
+                return("Locations");
+        }
+    }
+
+    public Context getContext() {
+        return context;
     }
 }
