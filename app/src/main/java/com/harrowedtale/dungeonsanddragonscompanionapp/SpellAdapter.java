@@ -47,7 +47,8 @@ public class SpellAdapter  extends FirestoreRecyclerAdapter <SpellObject, SpellA
 
         @Override
         public void onClick(View v) {
-            clicklistener.onItemClick(getAdapterPosition(), v);
+            String spell_name = getSnapshots().getSnapshot(getAdapterPosition()).getId();
+            clicklistener.onItemClick(getAdapterPosition(), v, spell_name);
         }
 
     }
@@ -56,6 +57,6 @@ public class SpellAdapter  extends FirestoreRecyclerAdapter <SpellObject, SpellA
         SpellAdapter.clicklistener = clicklistener;
     }
     public interface ClickListener {
-        void onItemClick(int position, View v);
+        void onItemClick(int position, View v, String spell);
     }
 }

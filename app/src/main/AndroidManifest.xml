@@ -33,6 +33,9 @@
         <activity android:name=".PlayerClassActivity" />
         <activity android:name=".RulesActivity" />
         <activity android:name=".RulesSectionActivity" />
+        <activity android:name=".ItemActivity" />
+        <activity android:name=".FullItemActivity" />
+        <activity android:name=".RacesActivity" />
     </application>
 
 </manifest>
