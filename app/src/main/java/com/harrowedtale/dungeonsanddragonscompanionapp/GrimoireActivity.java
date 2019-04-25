@@ -20,6 +20,7 @@ public class GrimoireActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grimoire);
+        setTitle("Grimoire");
 
         ArrayAdapter adapter = new ArrayAdapter<>(this, R.layout.mainmenu_list_item, menuOptions);
       //  getActionBar().setHomeButtonEnabled(true);

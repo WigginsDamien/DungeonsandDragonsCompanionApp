@@ -21,6 +21,7 @@ public class SpellActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.spellpage_layout);
         setUpRecyclerView();
+        setTitle("Spellbook");
     }
 
     private void setUpRecyclerView() {

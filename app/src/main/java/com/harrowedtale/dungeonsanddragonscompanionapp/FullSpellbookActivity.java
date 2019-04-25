@@ -31,7 +31,7 @@ public class FullSpellbookActivity extends AppCompatActivity{
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 DocumentSnapshot doc = task.getResult();
-                spelldata = findViewById(R.id.spellData);
+                spelldata = findViewById(R.id.spellCastTime);
                 // monsterdata.setText(doc);
                 Map<String, Object> monster = doc.getData();
                 // monsterdata.setText(monster);

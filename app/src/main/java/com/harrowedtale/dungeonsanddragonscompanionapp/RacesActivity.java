@@ -12,37 +12,37 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class FeatsActivity extends AppCompatActivity {
+public class RacesActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference Feats = db.collection("Feats");
-    private FeatsAdapter adapter;
+    private CollectionReference Races = db.collection("Races");
+    private RaceAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.feats_layout);
+        setContentView(R.layout.racepage_layout);
         setUpRecyclerView();
-        setTitle("Feats");
+        setTitle("Races");
     }
 
     private void setUpRecyclerView() {
-        Query query = Feats;
+        Query query = Races;
 
-        FirestoreRecyclerOptions<FeatsObject> options = new FirestoreRecyclerOptions.Builder<FeatsObject>().setQuery(query, FeatsObject.class).build();
+        FirestoreRecyclerOptions<RaceObject> options = new FirestoreRecyclerOptions.Builder<RaceObject>().setQuery(query, RaceObject.class).build();
 
-        adapter = new FeatsAdapter(options);
+        adapter = new RaceAdapter(options);
 
-        RecyclerView recyclerView_monster = findViewById(R.id.feats_recycler);
+        RecyclerView recyclerView_monster = findViewById(R.id.race_recycler);
         recyclerView_monster.setHasFixedSize(true);
         recyclerView_monster.setLayoutManager(new LinearLayoutManager(this));
         recyclerView_monster.setAdapter(adapter);
 
-        adapter.setOnItemClickListener(new FeatsAdapter.ClickListener() {
+        adapter.setOnItemClickListener(new RaceAdapter.ClickListener() {
             @Override
-            public void onItemClick(int position, View v) {
-                Intent spell_display = new Intent(FeatsActivity.this, FullPlayerClassActivity.class);
-                spell_display.putExtra("Name", Feats.getId());
-                startActivity(spell_display);
+            public void onItemClick(int position, View v, String race_name) {
+                Intent Race_display = new Intent(RacesActivity.this, FullRaceActivity.class);
+                Race_display.putExtra("Name", race_name);
+                startActivity(Race_display);
             }
         });
     }

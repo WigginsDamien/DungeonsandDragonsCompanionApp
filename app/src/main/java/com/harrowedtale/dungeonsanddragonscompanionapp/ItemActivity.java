@@ -12,37 +12,37 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class FeatsActivity extends AppCompatActivity {
+public class ItemActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference Feats = db.collection("Feats");
-    private FeatsAdapter adapter;
+    private CollectionReference Items = db.collection("Equipment");
+    private ItemAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.feats_layout);
+        setContentView(R.layout.item_layout);
         setUpRecyclerView();
-        setTitle("Feats");
+        setTitle("Items");
     }
 
     private void setUpRecyclerView() {
-        Query query = Feats;
+        Query query = Items;
 
-        FirestoreRecyclerOptions<FeatsObject> options = new FirestoreRecyclerOptions.Builder<FeatsObject>().setQuery(query, FeatsObject.class).build();
+        FirestoreRecyclerOptions<ItemObject> options = new FirestoreRecyclerOptions.Builder<ItemObject>().setQuery(query, ItemObject.class).build();
 
-        adapter = new FeatsAdapter(options);
+        adapter = new ItemAdapter(options);
 
-        RecyclerView recyclerView_monster = findViewById(R.id.feats_recycler);
+        RecyclerView recyclerView_monster = findViewById(R.id.item_recycler);
         recyclerView_monster.setHasFixedSize(true);
         recyclerView_monster.setLayoutManager(new LinearLayoutManager(this));
         recyclerView_monster.setAdapter(adapter);
 
-        adapter.setOnItemClickListener(new FeatsAdapter.ClickListener() {
+        adapter.setOnItemClickListener(new ItemAdapter.ClickListener() {
             @Override
-            public void onItemClick(int position, View v) {
-                Intent spell_display = new Intent(FeatsActivity.this, FullPlayerClassActivity.class);
-                spell_display.putExtra("Name", Feats.getId());
-                startActivity(spell_display);
+            public void onItemClick(int position, View v, String monster) {
+                Intent Item_display = new Intent(ItemActivity.this, FullItemActivity.class);
+                Item_display.putExtra("Name", monster);
+                startActivity(Item_display);
             }
         });
     }
