@@ -151,7 +151,6 @@ public class MonsterActivity extends AppCompatActivity {
             recyclerView_monster.setHasFixedSize(true);
             recyclerView_monster.setLayoutManager(new LinearLayoutManager(this));
             recyclerView_monster.setAdapter(adapter);
-            recyclerView_monster.getAdapter().notifyDataSetChanged();
 
             adapter.setOnItemClickListener(new MonsterAdapter.ClickListener() {
                 @Override

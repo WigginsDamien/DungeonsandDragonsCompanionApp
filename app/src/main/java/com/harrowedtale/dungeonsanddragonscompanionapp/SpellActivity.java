@@ -27,8 +27,7 @@ public class SpellActivity extends AppCompatActivity {
         mSearchField = (EditText) findViewById(R.id.search_field);
 
         setUpRecyclerView();
-
-
+        setTitle("Spellbook");
     }
 
     private void setUpRecyclerView() {
@@ -45,9 +44,9 @@ public class SpellActivity extends AppCompatActivity {
 
         adapter.setOnItemClickListener(new SpellAdapter.ClickListener() {
             @Override
-            public void onItemClick(int position, View v) {
+            public void onItemClick(int position, View v, String spell) {
                 Intent spell_display = new Intent(SpellActivity.this, FullSpellActivity.class);
-                spell_display.putExtra("Name", Spells.getId());
+                spell_display.putExtra("Name", spell);
                 startActivity(spell_display);
             }
         });

@@ -20,6 +20,7 @@ public class GrimoireActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grimoire);
+        setTitle("Grimoire");
 
         ArrayAdapter adapter = new ArrayAdapter<>(this, R.layout.mainmenu_list_item, menuOptions);
         GridView gridView = findViewById(R.id.menu_list);
@@ -35,8 +36,8 @@ public class GrimoireActivity extends AppCompatActivity {
                 }
                 else if(position == 1)//For the Items
                 {   //TODO Need to put in the correct item activity name
-                    //Intent items = new Intent(GrimoireActivity.this, ItemActivity.class);
-                    //startActivity(items);
+                    Intent items = new Intent(GrimoireActivity.this, ItemActivity.class);
+                    startActivity(items);
                 }
                 else if(position == 2)//For the spells
                 {
@@ -56,8 +57,8 @@ public class GrimoireActivity extends AppCompatActivity {
                 else if(position == 5)//For the races
                 {
                     //TODO Need to put in the correct races activity name
-                    //Intent races = new Intent(GrimoireActivity.this, racesActivity.class);
-                    //startActivity(races);
+                    Intent races = new Intent(GrimoireActivity.this, RacesActivity.class);
+                    startActivity(races);
                 }
                 else if(position == 6)//For the feats
                 {
