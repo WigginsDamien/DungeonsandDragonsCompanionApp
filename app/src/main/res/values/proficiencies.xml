@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="barbarian_profs">
+        <item>Animal Handling</item>
+        <item>Athletics</item>
+        <item>Intimidation</item>
+        <item>Nature</item>
+        <item>Perception</item>
+        <item>Survival</item>
+    </string-array>
+
+    <string-array name="bard_profs">
+        <item>Acrobatics</item>
+        <item>Animal Handling</item>
+        <item>Arcana</item>
+        <item>Athletics</item>
+        <item>Deception</item>
+        <item>History</item>
+        <item>Insight</item>
+        <item>Intimidation</item>
+        <item>Investigation</item>
+        <item>Medicine</item>
+        <item>Nature</item>
+        <item>Perception</item>
+        <item>Performance</item>
+        <item>Persuasion</item>
+        <item>Religion</item>
+        <item>Sleight of Hand</item>
+        <item>Stealth</item>
+        <item>Survival</item>
+    </string-array>
+
+    <string-array name="cleric_profs">
+        <item>History</item>
+        <item>Insight</item>
+        <item>Medicine</item>
+        <item>Persuasion</item>
+        <item>Religion</item>
+    </string-array>
+
+    <string-array name="druid_profs">
+        <item>Animal Handling</item>
+        <item>Arcana</item>
+        <item>Insight</item>
+        <item>Medicine</item>
+        <item>Nature</item>
+        <item>Perception</item>
+        <item>Religion</item>
+        <item>Survival</item>
+    </string-array>
+
+    <string-array name="fighter_profs">
+        <item>Acrobatics</item>
+        <item>Animal Handling</item>
+        <item>Athletics</item>
+        <item>History</item>
+        <item>Insight</item>
+        <item>Intimidation</item>
+        <item>Perception</item>
+        <item>Survival</item>
+    </string-array>
+
+    <string-array name="monk_profs">
+        <item>Acrobatics</item>
+        <item>Athletics</item>
+        <item>History</item>
+        <item>Insight</item>
+        <item>Religion</item>
+        <item>Stealth</item>
+    </string-array>
+
+    <string-array name="paladin_profs">
+        <item>Athletics</item>
+        <item>Insight</item>
+        <item>Intimidation</item>
+        <item>Medicine</item>
+        <item>Persuasion</item>
+        <item>Religion</item>
+    </string-array>
+
+    <string-array name="ranger_profs">
+        <item>Animal Handling</item>
+        <item>Athletics</item>
+        <item>Insight</item>
+        <item>Investigation</item>
+        <item>Nature</item>
+        <item>Perception</item>
+        <item>Stealth</item>
+        <item>Survival</item>
+    </string-array>
+
+    <string-array name="rogue_profs">
+        <item>Acrobatics</item>
+        <item>Athletics</item>
+        <item>Deception</item>
+        <item>Insight</item>
+        <item>Intimidation</item>
+        <item>Investigation</item>
+        <item>Perception</item>
+        <item>Performance</item>
+        <item>Persuasion</item>
+        <item>Sleight of Hand</item>
+        <item>Stealth</item>
+    </string-array>
+
+    <string-array name="sorcerer_profs">
+        <item>Arcana</item>
+        <item>Deception</item>
+        <item>Insight</item>
+        <item>Intimidation</item>
+        <item>Persuasion</item>
+        <item>Religion</item>
+    </string-array>
+
+    <string-array name="warlock_profs">
+        <item>Arcana</item>
+        <item>Deception</item>
+        <item>History</item>
+        <item>Intimidation</item>
+        <item>Investigation</item>
+        <item>Nature</item>
+        <item>Religion</item>
+    </string-array>
+
+    <string-array name="wizard_profs">
+        <item>Arcana</item>
+        <item>History</item>
+        <item>Insight</item>
+        <item>Investigation</item>
+        <item>Medicine</item>
+        <item>Religion</item>
+    </string-array>
+</resources>

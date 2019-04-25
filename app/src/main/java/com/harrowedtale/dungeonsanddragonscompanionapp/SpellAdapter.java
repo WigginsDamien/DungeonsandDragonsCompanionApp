@@ -2,17 +2,12 @@ package com.harrowedtale.dungeonsanddragonscompanionapp;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-
-import io.opencensus.tags.TagContext;
 
 public class SpellAdapter  extends FirestoreRecyclerAdapter <SpellObject, SpellAdapter.SpellHolder> {
     private static ClickListener clicklistener;
@@ -52,7 +47,8 @@ public class SpellAdapter  extends FirestoreRecyclerAdapter <SpellObject, SpellA
 
         @Override
         public void onClick(View v) {
-            clicklistener.onItemClick(getAdapterPosition(), v);
+            String spell_name = getSnapshots().getSnapshot(getAdapterPosition()).getId();
+            clicklistener.onItemClick(getAdapterPosition(), v, spell_name);
         }
 
     }
@@ -61,6 +57,6 @@ public class SpellAdapter  extends FirestoreRecyclerAdapter <SpellObject, SpellA
         SpellAdapter.clicklistener = clicklistener;
     }
     public interface ClickListener {
-        void onItemClick(int position, View v);
+        void onItemClick(int position, View v, String spell);
     }
 }

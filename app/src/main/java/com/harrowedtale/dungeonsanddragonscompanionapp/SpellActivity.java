@@ -4,29 +4,30 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.EditText;
 
 public class SpellActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference Spells = db.collection("Spells");
     private SpellAdapter adapter;
+    private EditText mSearchField;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.spellpage_layout);
+
+        mSearchField = (EditText) findViewById(R.id.search_field);
+
         setUpRecyclerView();
+        setTitle("Spellbook");
     }
 
     private void setUpRecyclerView() {
@@ -43,9 +44,9 @@ public class SpellActivity extends AppCompatActivity {
 
         adapter.setOnItemClickListener(new SpellAdapter.ClickListener() {
             @Override
-            public void onItemClick(int position, View v) {
+            public void onItemClick(int position, View v, String spell) {
                 Intent spell_display = new Intent(SpellActivity.this, FullSpellActivity.class);
-                spell_display.putExtra("Name", Spells.getId());
+                spell_display.putExtra("Name", spell);
                 startActivity(spell_display);
             }
         });

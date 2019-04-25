@@ -15,8 +15,20 @@
       },
       "oauth_client": [
         {
-          "client_id": "1093308370045-2f8ca0bmh04jsn61h9qus0239pir9af9.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "1093308370045-andncjtrphg7upka1n1nl1ertgmoe5ku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.harrowedtale.dungeonsanddragonscompanionapp",
+            "certificate_hash": "d3871f2f79665c02cd3b2fc77fdb143da8bbbcbd"
+          }
+        },
+        {
+          "client_id": "1093308370045-3mobgbprukm9rlcqa4kt389vlnnkvpk4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.harrowedtale.dungeonsanddragonscompanionapp",
+            "certificate_hash": "5d7c199fd730448c26bddc43e3be9c57224834df"
+          }
         }
       ],
       "api_key": [
@@ -25,15 +37,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1093308370045-2f8ca0bmh04jsn61h9qus0239pir9af9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

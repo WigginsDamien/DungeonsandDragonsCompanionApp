@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="back_wiz">Back</string>
+    <string name="next_wiz">Next</string>
+    <string name="finish_wiz">Finish</string>
+
+    <string name="step_1">Step 1: Basics</string>
+    <string name="step_2">Step 2: Details</string>
+    <string name="step_3">Step 3: Stats</string>
+    <string name="step_4">Step 4: Proficiencies</string>
+
+    <string name="name_wiz">Name: </string>
+    <string name="name_wiz_ph">Doug the Dangerous</string>
+    <string name="class_wiz">Class: </string>
+
+    <string name="level_wiz">Level: </string>
+    <string name="level_wiz_ph">1&#8211;100 </string>
+    <string name="alignment_wiz">Alignment: </string>
+    <string name="race_wiz">Race: </string>
+
+    <string name="strength_wiz">Strength: </string>
+    <string name="dexterity_wiz">Dexterity: </string>
+    <string name="constitution_wiz">Constitution: </string>
+    <string name="intelligence_wiz">Intelligence: </string>
+    <string name="wisdom_wiz">Wisdom: </string>
+    <string name="charisma_wiz">Charisma: </string>
+    <string name="stat_wiz_ph">1&#8211;10 </string>
+
+    <string name="prof_1_wiz">1: </string>
+    <string name="prof_2_wiz">2: </string>
+    <string name="prof_3_wiz">3: </string>
+    <string name="prof_4_wiz">4: </string>
+</resources>
