@@ -22,8 +22,9 @@
                     android:id="@+id/spellCastTimeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
                     android:paddingTop="10dp"
+                    android:paddingLeft="30dp"
                     android:text="Cast Time"
                     android:textAlignment="center"
                     android:textSize="18sp"
@@ -33,7 +34,7 @@
                     android:id="@+id/spellConcentrationTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
                     android:paddingTop="10dp"
                     android:text="Concentration"
                     android:textAlignment="center"
@@ -50,9 +51,8 @@
                     android:id="@+id/spellCastTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingLeft="0dp"
-                    android:paddingRight="0dp"
+                    android:layout_weight="0.5"
+                    android:paddingLeft="10dp"
                     android:text="Cast Time"
                     android:textAlignment="center" />
 
@@ -60,8 +60,8 @@
                     android:id="@+id/spellConcentration"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingRight="0dp"
+                    android:layout_weight="0.5"
+                    android:paddingRight="10dp"
                     android:text="Concentration"
                     android:textAlignment="center" />
 
@@ -76,8 +76,9 @@
                     android:id="@+id/spellDurationTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Duration"
+                    android:layout_weight="0.5"
+                    android:paddingLeft="30dp"
+                    android:text="Duration "
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -86,7 +87,7 @@
                     android:id="@+id/spellComponentsTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
                     android:text="Components"
                     android:textAlignment="center"
                     android:textSize="18sp"
@@ -102,7 +103,8 @@
                     android:id="@+id/spellDuration"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
+                    android:paddingLeft="8dp"
                     android:text="Duration"
                     android:textAlignment="center" />
 
@@ -110,7 +112,8 @@
                     android:id="@+id/spellComponents"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
+                    android:paddingRight="15dp"
                     android:text="Components"
                     android:textAlignment="center" />
 
@@ -126,9 +129,8 @@
                     android:id="@+id/spellRangeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingLeft="0dp"
-                    android:paddingRight="0dp"
+                    android:layout_weight="0.5"
+                    android:paddingLeft="20dp"
                     android:text="Range"
                     android:textAlignment="center"
                     android:textSize="18sp"
@@ -138,9 +140,10 @@
                     android:id="@+id/spellLevelTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
                     android:text="Level"
                     android:textAlignment="center"
+                    android:paddingRight="8dp"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -154,7 +157,8 @@
                     android:id="@+id/spellRange"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
+                    android:paddingLeft="25dp"
                     android:text="spellRange"
                     android:textAlignment="center" />
 
@@ -162,8 +166,9 @@
                     android:id="@+id/spellLevel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
                     android:text="spellLevel"
+                    android:paddingRight="4dp"
                     android:textAlignment="center" />
             </LinearLayout>
 
