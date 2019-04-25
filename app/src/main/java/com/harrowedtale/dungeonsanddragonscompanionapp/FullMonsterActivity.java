@@ -33,6 +33,7 @@ public class FullMonsterActivity extends AppCompatActivity {
     private TextView monsterAbilities;
     private TextView monsterLegendaryActionTitle;
     private TextView monsterAbilityTitle;
+    private TextView monsterTitles;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference Monster = db.collection("Monsters");
 
@@ -52,6 +53,7 @@ public class FullMonsterActivity extends AppCompatActivity {
         monsterActions = findViewById(R.id.monsterActionData);
         monsterLegendaryActions = findViewById(R.id.monsterLegendaryActions);
         monsterAbilities = findViewById(R.id.monsterAbility);
+        monsterTitles = findViewById(R.id.monsterTitles);
         Intent monster_display = getIntent();
         String Monster_name = monster_display.getStringExtra("Name");//get monster name from previous activity
         setTitle(Monster_name);//Sets page title to the respective monster
@@ -61,25 +63,31 @@ public class FullMonsterActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 String monsterinfo = "";
+                String monstertitles = "";
                 DocumentSnapshot snap = task.getResult();//assigns the document to snap
                 String temp;
                 Number temp_int;
                 ArrayList<Map<String,String>> test = (ArrayList<Map<String, String>>) snap.get("actions");
                 if(snap.contains("hitPoints")) {
                     temp_int = (Number) snap.get("hitPoints");
-                    monsterinfo = ("Hitpoints: " + temp_int + "\n");
+                    monsterinfo = ("Hitpoints: " +"\n");
+                    monstertitles += temp_int + "\n";
+
                 }
                 if(snap.contains("hitDice")) {
                     temp = (String) snap.get("hitDice");
-                    monsterinfo += ("Hit Dice: " + temp + "\n");
+                    monsterinfo += ("Hit Dice: " + "\n");
+                    monstertitles += temp + "\n";
                 }
                 if(snap.contains("armorClass")) {
                     temp_int = (Number) snap.get("armorClass");
-                    monsterinfo += ("Armor Class: " + String.valueOf(temp_int) + "\n");
+                    monsterinfo += ("Armor Class: " + "\n");
+                    monstertitles += temp_int + "\n";
                 }
                 if(snap.contains("challengeRating")) {
                     temp_int = (Number) snap.get("challengeRating");
-                    monsterinfo += ("Challenge Rating: " + String.valueOf(temp_int) + "\n");
+                    monsterinfo += ("Challenge Rating: " + "\n");
+                    monstertitles += temp_int + "\n";
                 }
                 if(snap.contains("constitution")) {
                     temp_int = (Number) snap.get("constitution");
@@ -106,47 +114,58 @@ public class FullMonsterActivity extends AppCompatActivity {
                 }
                 if(snap.contains("alignment")) {
                     temp = (String) snap.get("alignment");
-                    monsterinfo += ("Alignment: " + temp + "\n");
+                    monsterinfo += ("Alignment: " + "\n");
+                    monstertitles += temp + "\n";
                 }
                 if(snap.get("conditionImmunities") != "") {
                     temp = (String) snap.get("conditionImmunities");
-                    monsterinfo += ("Condition Immunities: " + temp + "\n");
+                    monsterinfo += ("Condition Immunities: " + "\n");
+                    monstertitles += temp + "\n";
                 }
                 if(snap.get("damageImmunities") != "") {
                     temp = (String) snap.get("damageImmunities");
-                    monsterinfo += ("Damage Immunities: " + temp + "\n");
+                    monsterinfo += ("Damage Immunities: " +  "\n");
+                    monstertitles += temp + "\n";
                 }
                 if(snap.get("damageResistances") != "") {
                     temp = (String) snap.get("damageResistances");
-                    monsterinfo += ("Damage Resistances: " + temp + "\n");
+                    monsterinfo += ("Damage Resistances: " + "\n");
+                    monstertitles += temp + "\n";
                 }
                 if(snap.get("damageVulnerabilities") != "") {
                     temp = (String) snap.get("damageVulnerabilities");
-                    monsterinfo += ("Vulnerable to: " + temp + "\n");
+                    monsterinfo += ("Vulnerable to: " + "\n");
+                    monstertitles += temp + "\n";
                 }
                 if(snap.get("size") != "") {
                     temp = (String) snap.get("size");
-                    monsterinfo += ("Size: " + temp + "\n");
+                    monsterinfo += ("Size: " +  "\n");
+                    monstertitles += temp + "\n";
                 }
                 if(snap.get("speed") != "") {
                     temp = (String) snap.get("speed");
-                    monsterinfo += ("Speed: " + temp + "\n");
+                    monsterinfo += ("Speed: " +  "\n");
+                    monstertitles += temp + "\n";
                 }
                 if(snap.get("type") != "") {
                     temp = (String) snap.get("type");
-                    monsterinfo += ("Type: " + temp + "\n");
+                    monsterinfo += ("Type: " + "\n");
+                    monstertitles += temp + "\n";
                 }
                 if(snap.get("subtype") != "") {
                     temp = (String) snap.get("subtype");
-                    monsterinfo += ("Subtype: " + temp + "\n");
+                    monsterinfo += ("Subtype: " + "\n");
+                    monstertitles += temp + "\n";
                 }
                 if(snap.get("languages") != "") {
                     temp = (String) snap.get("languages");
-                    monsterinfo += ("Languages: " + temp + "\n");
+                    monsterinfo += ("Languages: " + "\n");
+                    monstertitles += temp + "\n";
                 }
                 if(snap.get("senses") != "") {
                     temp = (String) snap.get("senses");
-                    monsterinfo += ("Senses: " + temp + "\n\n");
+                    monsterinfo += ("Senses: " + "\n\n");
+                    monstertitles += temp + "\n\n";
                 }
                 //String monster_alignment = monster_for_page.getAlignment();
                 String monster_actions = "";
@@ -195,6 +214,7 @@ public class FullMonsterActivity extends AppCompatActivity {
                     }
                 }
                 monsterdata.setText(monsterinfo);
+                monsterTitles.setText(monstertitles);
             }
         });
 

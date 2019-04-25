@@ -20,6 +20,11 @@
         <item>Type</item>
     </string-array>
 
+    <string-array name="spellsort_spinner">
+        <item>Name</item>
+        <item>Level</item>
+    </string-array>
+
     <string name="beast">beast</string>
     <string name="submit">Submit</string>
     <string name="name_ph">Character Name</string>

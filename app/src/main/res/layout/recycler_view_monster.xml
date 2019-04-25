@@ -35,5 +35,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="@tools:sample/lorem[2]" />
+
+    <TextView
+        android:id="@+id/monster_Type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
   </LinearLayout>
 </LinearLayout>
