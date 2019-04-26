@@ -39,6 +39,7 @@
         <activity android:name=".FullRaceActivity" />
         <activity android:name=".FullPlayerClassActivity" />
         <activity android:name=".FullRuleActivity" />
+        <activity android:name=".CustomItem"/>
     </application>
 
 </manifest>
