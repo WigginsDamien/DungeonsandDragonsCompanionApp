@@ -15,19 +15,20 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Map;
 
-public class FullPlayerClassActivity extends AppCompatActivity {
+public class FullRuleActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private TextView playerclassData;
-
+    private TextView RuleData;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.race_fullinformation);
-        playerclassData = findViewById(R.id.raceData);
+        RuleData = findViewById(R.id.raceData);
+
         Intent classIntent = getIntent();
         String className = classIntent.getStringExtra("Name");
+        String ruleCollection = classIntent.getStringExtra("SectionName");
         setTitle(className);
-        DocumentReference classDoc = db.collection("Classes").document(className);
+        DocumentReference classDoc = db.collection(ruleCollection).document(className);
 
         classDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -36,9 +37,9 @@ public class FullPlayerClassActivity extends AppCompatActivity {
                 Map<String, Object> classdata = className.getData();
                 String class_data = "";
                 for(String key : classdata.keySet()) {
-                    class_data += classdata.get(key).toString();
+                    class_data += key + ": " + classdata.get(key).toString() + "\n";
                 }
-                playerclassData.setText(class_data);
+                RuleData.setText(class_data);
             }
         });
     }

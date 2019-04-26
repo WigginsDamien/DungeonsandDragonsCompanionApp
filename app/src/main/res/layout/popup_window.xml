@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#003a32">
+    android:background="#c04e4e">
 
     <TextView
         android:id="@+id/tvTotal"
@@ -12,6 +12,7 @@
         android:layout_centerInParent="true"
         android:layout_margin="30dp"
         android:gravity="center"
+        android:textColor="#FFFFFF"
         android:text="45"
         android:textSize="60sp" />
 

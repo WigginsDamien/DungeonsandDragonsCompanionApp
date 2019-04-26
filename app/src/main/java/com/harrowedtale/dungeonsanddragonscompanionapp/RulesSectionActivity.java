@@ -89,9 +89,11 @@ public class RulesSectionActivity extends AppCompatActivity {
 
         adapter.setOnItemClickListener(new RuleAdapter.ClickListener() {
             @Override
-            public void onItemClick(int position, View v) {
- //               Intent Rule_display = new Intent(RulesSectionActivity.this, FullRuleActivity.class);
- //               startActivity(Rule_display);
+            public void onItemClick(int position, View v, String rule_section) {
+                Intent Rule_display = new Intent(RulesSectionActivity.this, FullRuleActivity.class);
+                Rule_display.putExtra("Name", rule_section);
+                Rule_display.putExtra("SectionName", RulePage.getId());
+                startActivity(Rule_display);
             }
         });
     }

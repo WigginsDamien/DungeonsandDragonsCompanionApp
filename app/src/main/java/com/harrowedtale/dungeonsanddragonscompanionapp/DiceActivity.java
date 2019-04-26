@@ -49,7 +49,7 @@ public class DiceActivity extends AppCompatActivity {
         amountPlus = (Button) findViewById(R.id.bDAmountPlus);
         modMinus = (Button) findViewById(R.id.bModAmountMinus);
         modPlus = (Button) findViewById(R.id.bModAmountPlus);
-
+        setTitle("Dice Roller");
         relativeLayout = (ConstraintLayout) findViewById(R.id.relative);
 
         //------------------------------Dice Amount Modifications------------------------------
