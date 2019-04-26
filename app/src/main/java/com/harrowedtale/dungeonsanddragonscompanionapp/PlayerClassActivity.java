@@ -39,10 +39,10 @@ public class PlayerClassActivity extends AppCompatActivity {
 
         adapter.setOnItemClickListener(new PlayerClassAdapter.ClickListener() {
             @Override
-            public void onItemClick(int position, View v) {
+            public void onItemClick(int position, View v, String className) {
                 Intent spell_display = new Intent(PlayerClassActivity.this, FullPlayerClassActivity.class);
-                spell_display.putExtra("Name", PlayerClass.getId());
-               // startActivity(spell_display);
+                spell_display.putExtra("Name", className);
+                startActivity(spell_display);
             }
         });
     }

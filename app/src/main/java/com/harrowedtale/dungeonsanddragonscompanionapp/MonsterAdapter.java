@@ -23,8 +23,10 @@ public class MonsterAdapter extends FirestoreRecyclerAdapter<MonsterObject, Mons
         monster.tvName.setText(getSnapshots().getSnapshot(position).getReference().getId());
         String challengeRating = "Challenge Rating: " + String.valueOf(getSnapshots().getSnapshot(position).get("challengeRating"));
         String hitPoints = "Hitpoints: " + String.valueOf(getSnapshots().getSnapshot(position).get("hitPoints"));
+        String monsterType = "Type: " + getSnapshots().getSnapshot(position).get("type");
         monster.tvCR.setText(challengeRating);
         monster.tvHP.setText(hitPoints);
+        monster.tvType.setText(monsterType);
     }
 
     @NonNull
@@ -39,6 +41,7 @@ public class MonsterAdapter extends FirestoreRecyclerAdapter<MonsterObject, Mons
         TextView tvName;
         TextView tvCR;
         TextView tvHP;
+        TextView tvType;
 
         public MonsterHolder(View itemView) {
             super(itemView);
@@ -46,6 +49,7 @@ public class MonsterAdapter extends FirestoreRecyclerAdapter<MonsterObject, Mons
             tvName = itemView.findViewById(R.id.monster_name);
             tvCR = itemView.findViewById(R.id.monster_CR);
             tvHP = itemView.findViewById(R.id.monster_HP);
+            tvType = itemView.findViewById(R.id.monster_Type);
         }
 
         @Override

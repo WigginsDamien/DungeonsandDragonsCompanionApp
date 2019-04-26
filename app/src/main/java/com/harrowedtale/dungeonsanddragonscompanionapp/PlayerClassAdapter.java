@@ -39,7 +39,8 @@ public class PlayerClassAdapter extends FirestoreRecyclerAdapter<PlayerClassObje
 
         @Override
         public void onClick(View v) {
-           clicklistener.onItemClick(getAdapterPosition(), v);
+            String className = getSnapshots().getSnapshot(getAdapterPosition()).getId();
+           clicklistener.onItemClick(getAdapterPosition(), v, className);
         }
 
     }
@@ -48,6 +49,6 @@ public class PlayerClassAdapter extends FirestoreRecyclerAdapter<PlayerClassObje
         PlayerClassAdapter.clicklistener = clicklistener;
     }
     public interface ClickListener {
-        void onItemClick(int position, View v);
+        void onItemClick(int position, View v, String className);
     }
 }
