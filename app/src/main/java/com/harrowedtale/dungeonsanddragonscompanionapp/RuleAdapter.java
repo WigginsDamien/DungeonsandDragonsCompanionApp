@@ -40,7 +40,8 @@ public class RuleAdapter extends FirestoreRecyclerAdapter <RuleObject, RuleAdapt
 
         @Override
         public void onClick(View v) {
-            clicklistener.onItemClick(getAdapterPosition(), v);
+            String rule = getSnapshots().getSnapshot(getAdapterPosition()).getId();
+            clicklistener.onItemClick(getAdapterPosition(), v, rule);
         }
 
     }
@@ -49,6 +50,6 @@ public class RuleAdapter extends FirestoreRecyclerAdapter <RuleObject, RuleAdapt
         RuleAdapter.clicklistener = clicklistener;
     }
     public interface ClickListener {
-        void onItemClick(int position, View v);
+        void onItemClick(int position, View v, String rule);
     }
 }

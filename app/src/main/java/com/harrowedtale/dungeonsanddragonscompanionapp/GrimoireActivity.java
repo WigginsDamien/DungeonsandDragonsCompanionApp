@@ -35,7 +35,7 @@ public class GrimoireActivity extends AppCompatActivity {
                     startActivity(bestiary);
                 }
                 else if(position == 1)//For the Items
-                {   //TODO Need to put in the correct item activity name
+                {
                     Intent items = new Intent(GrimoireActivity.this, ItemActivity.class);
                     startActivity(items);
                 }
@@ -56,7 +56,6 @@ public class GrimoireActivity extends AppCompatActivity {
                 }
                 else if(position == 5)//For the races
                 {
-                    //TODO Need to put in the correct races activity name
                     Intent races = new Intent(GrimoireActivity.this, RacesActivity.class);
                     startActivity(races);
                 }
