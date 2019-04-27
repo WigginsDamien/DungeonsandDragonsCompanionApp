@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -20,13 +21,25 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class CharacterSheet extends AppCompatActivity {
     Button nameButton;
     EditText characterName;
     TextView mText;
     String buffdude;
+    String bufferdude;
     String fileContents = "Hello world!";
     FileOutputStream outputStream;
+    String path="/data/data/com.harrowedtale.dungeonsanddragonscompanionapp/files";
+    File[] Characters=new File(path).listFiles();
+    String CharacterList[]= new String[Characters.length];
     //File file = new File(context.getFilesDir(), filename);
 
     //To view created files on android studio go to view -> Tool Windows -> Device File Explorer
@@ -39,21 +52,25 @@ public class CharacterSheet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.character_sheet);
 
-        nameButton = findViewById(R.id.nameButton);
-        nameButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                characterName   = findViewById(R.id.characterName);
+        for (int i = 0; i < Characters.length; i++) {
+            Log.d("Characters", "CharacterName:" + Characters[i].getName());
+            CharacterList[i] = Characters[i].getName();
+        }
+        Spinner spinner = (Spinner) findViewById(R.id.characterSelectSpinner);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, CharacterList);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mText= (TextView) findViewById(R.id.CharacterDisplay);
+                buffdude=read_file(parent.getItemAtPosition(position).toString());
+                mText.setText(buffdude);
+            }
 
-                fileContents=characterName.getText().toString();
-                //writeToFile("{ \"name\":" + "\"" +fileContents+ "\"" + " }" );
-                writeToNewFile(jsonfy("name",fileContents));
-
-
-                writeToFile(jsonfy("class","cleric"));
-                buffdude=read_file("character1.txt");
-
-                mText = findViewById(R.id.Title);
-                mText.setText("Welcome "+ buffdude+"!");
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //Another interface callback
             }
         });
     }
@@ -138,10 +155,13 @@ public class CharacterSheet extends AppCompatActivity {
         }
     }
 
-   public String jsonfy(String category, String input){
+   public String jsonify(String category, String input){
         String jsonString;
         jsonString="{ \"" +category +"\":" + "\"" +input+ "\"" + " }";
         return jsonString;
    }
+
+
+
 }
 

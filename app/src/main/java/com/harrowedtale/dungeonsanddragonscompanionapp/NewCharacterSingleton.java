@@ -43,10 +43,10 @@ public class NewCharacterSingleton {
         wisdom = -1;
         charisma = -1;
 
-        prof1 = "default";
-        prof2 = "default";
-        prof3 = "default";
-        prof4 = "default";
+        prof1 = "";
+        prof2 = "";
+        prof3 = "";
+        prof4 = "";
     }
 
     public static NewCharacterSingleton getInstance(){
@@ -105,6 +105,32 @@ public class NewCharacterSingleton {
     public String getCharacterClass(){
         return character_class;
     }
+
+    public String getLevel(){ return String.valueOf(level); }
+
+    public String getAlignment(){ return alignment; }
+
+    public String getRace(){return race;}
+
+    public String getStrength(){ return String.valueOf(strength); }
+
+    public String getDexterity(){ return String.valueOf(dexterity); }
+
+    public String getConstitution(){ return String.valueOf(constitution); }
+
+    public String getIntelligence(){ return String.valueOf(intelligence); }
+
+    public String getWisdom(){ return String.valueOf(wisdom); }
+
+    public String getCharisma(){ return String.valueOf(charisma); }
+
+    public String getFirstProficiency(){return prof1;}
+
+    public String getSecondProficiency(){return prof2;}
+
+    public String getThirdProficiency(){return prof3;}
+
+    public String getFourthProficiency(){return prof4;}
 
     public int getProficiencyCount(){
         //this function returns the number of proficiencies a class gets to pick
