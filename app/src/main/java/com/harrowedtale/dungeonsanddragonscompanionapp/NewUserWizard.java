@@ -53,23 +53,7 @@ public class NewUserWizard extends AppCompatActivity {
                     if(viewPager.getCurrentItem() == wizardAdapter.getCount()-1){
                         NewCharacterSingleton newCharacter = NewCharacterSingleton.getInstance();
 
-                        writeToNewFile(newCharacter.getName()+".txt",jsonify(newCharacter.getName()));
-                        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getCharacterClass()));
-                        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getLevel()));
-                        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getAlignment()));
-                        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getRace()));
-
-                        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getStrength()));
-                        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getDexterity()));
-                        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getConstitution()));
-                        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getIntelligence()));
-                        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getWisdom()));
-                        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getCharisma()));
-
-                        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getFirstProficiency()));
-                        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getSecondProficiency()));
-                        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getThirdProficiency()));
-                        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getFourthProficiency()));
+                        CreateCharacter();
 
                         Toast.makeText(NewUserWizard.this, "Setup Complete!", Toast.LENGTH_SHORT).show();
                         Intent mainMenu = new Intent(NewUserWizard.this, MainActivity.class);
@@ -148,4 +132,24 @@ public class NewUserWizard extends AppCompatActivity {
         return jsonString;
     }
 
+    public void CreateCharacter(){
+        NewCharacterSingleton newCharacter = NewCharacterSingleton.getInstance();
+        writeToNewFile(newCharacter.getName()+".txt",jsonify(newCharacter.getName()));
+        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getCharacterClass()));
+        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getLevel()));
+        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getAlignment()));
+        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getRace()));
+
+        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getStrength()));
+        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getDexterity()));
+        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getConstitution()));
+        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getIntelligence()));
+        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getWisdom()));
+        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getCharisma()));
+
+        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getFirstProficiency()));
+        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getSecondProficiency()));
+        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getThirdProficiency()));
+        writeToFile(newCharacter.getName()+".txt",jsonify(newCharacter.getFourthProficiency()));
+    }
 }
