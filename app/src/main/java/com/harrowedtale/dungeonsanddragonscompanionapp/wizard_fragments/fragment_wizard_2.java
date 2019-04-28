@@ -14,7 +14,7 @@ import com.harrowedtale.dungeonsanddragonscompanionapp.R;
 
 public class fragment_wizard_2 extends WizardFragment {
 
-    EditText levelEditText;
+    EditText levelEditText, hpEditText;
     Spinner alignmentSpinner;
     Spinner raceSpinner;
 
@@ -24,6 +24,7 @@ public class fragment_wizard_2 extends WizardFragment {
         View rootView = inflater.inflate(R.layout.fragment_wizard_2, container, false);
 
         levelEditText = rootView.findViewById(R.id.level_editText);
+        hpEditText = rootView.findViewById(R.id.hitpoints_editText);
 
         alignmentSpinner = rootView.findViewById(R.id.alignment_spinner);
         ArrayAdapter<CharSequence> alignmentsAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.alignments_array, android.R.layout.simple_spinner_item);
@@ -39,16 +40,25 @@ public class fragment_wizard_2 extends WizardFragment {
 
     @Override
     public boolean areFieldsValid() {
-        //if true
-        if(!(levelEditText.getText().toString().equals("")) && !(Integer.valueOf(levelEditText.getText().toString()) < 1) && !(Integer.valueOf(levelEditText.getText().toString()) > 100)){
-            NewCharacterSingleton newCharacter = NewCharacterSingleton.getInstance();
-            newCharacter.setWizardPageTwo(Integer.valueOf(levelEditText.getText().toString()), alignmentSpinner.getSelectedItem().toString(), raceSpinner.getSelectedItem().toString());
-            return true;
+        boolean areValid = true;
+
+        //error checking for all 6 stats (sorry, I know its a lot)
+        if((levelEditText.getText().toString().equals("")) || Integer.valueOf(levelEditText.getText().toString()) > 340 || Integer.valueOf(levelEditText.getText().toString()) < 1){
+            levelEditText.setError("Must be 1-100");
+            areValid = false;
         }
-        else{
-            levelEditText.setError("Level must be between 1-100.");
+        if((hpEditText.getText().toString().equals("")) || Integer.valueOf(hpEditText.getText().toString()) > 340 || Integer.valueOf(hpEditText.getText().toString()) < 1){
+            hpEditText.setError("Must be 1-340");
+            areValid = false;
         }
 
-        return false;
+        //if input looks good, save all page 2 values into singleton
+        if(areValid){
+            NewCharacterSingleton newCharacter = NewCharacterSingleton.getInstance();
+            newCharacter.setWizardPageTwo(Integer.valueOf(levelEditText.getText().toString()),Integer.valueOf(hpEditText.getText().toString()),
+                    alignmentSpinner.getSelectedItem().toString(), raceSpinner.getSelectedItem().toString());
+        }
+
+        return areValid;
     }
 }

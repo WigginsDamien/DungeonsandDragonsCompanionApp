@@ -10,6 +10,7 @@ public class NewCharacterSingleton {
 
     //Step 2
     private int level;
+    private int hp;
     private String alignment;
     private String race;
 
@@ -33,6 +34,7 @@ public class NewCharacterSingleton {
         character_class = "default";
 
         level = -1;
+        hp = -1;
         alignment = "default";
         race = "default";
 
@@ -62,8 +64,9 @@ public class NewCharacterSingleton {
         character_class = c;
     }
 
-    public void setWizardPageTwo(int l, String a, String r){
+    public void setWizardPageTwo(int l, int h, String a, String r){
         level = l;
+        hp = h;
         alignment = a;
         race = r;
     }
@@ -107,6 +110,10 @@ public class NewCharacterSingleton {
     }
 
     public String getLevel(){ return String.valueOf(level); }
+
+    public String getHP() {
+        return String.valueOf(hp);
+    }
 
     public String getAlignment(){ return alignment; }
 
