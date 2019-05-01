@@ -139,6 +139,7 @@ public class NewCharacterSingleton {
 
     public String getFourthProficiency(){return prof4;}
 
+
     public int getProficiencyCount(){
         //this function returns the number of proficiencies a class gets to pick
         int profCount = 0;
