@@ -2,6 +2,7 @@ package com.harrowedtale.dungeonsanddragonscompanionapp;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
@@ -95,6 +96,8 @@ public class CharacterSheet extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         Button SaveButton=findViewById(R.id.SaveButton);
+                        Button SkillButton=findViewById(R.id.SkillButton);
+                        SkillButton.setVisibility(View.INVISIBLE);
                         String CharName=Stats[0];
                         String CharClass=Stats[1];
                         String CharLevel=Stats[2];
@@ -166,6 +169,8 @@ public class CharacterSheet extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Button SaveButton=findViewById(R.id.SaveButton);
+                    Button SkillButton=findViewById(R.id.SkillButton);
+                    SkillButton.setVisibility(View.INVISIBLE);
                     String CharStr=Stats[6];
                     String CharDex=Stats[7];
                     String CharCon=Stats[8];
@@ -235,6 +240,10 @@ public class CharacterSheet extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Button SaveButton=findViewById(R.id.SaveButton);
+
+                    Button SkillButton=findViewById(R.id.SkillButton);
+                    SkillButton.setVisibility(View.VISIBLE);
+
                     String CharProf1=Stats[12];
                     String CharProf2=Stats[13];
                     String CharProf3="";
@@ -310,6 +319,14 @@ public class CharacterSheet extends AppCompatActivity {
                             CreateCharacter(Stats[0],Stats);
                         }
                     });
+                    SkillButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(CharacterSheet.this, SkillList.class);
+                            startActivity(intent);
+                        }
+                    });
+
                 }
             });
 

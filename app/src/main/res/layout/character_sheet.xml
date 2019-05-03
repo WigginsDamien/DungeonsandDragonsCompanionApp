@@ -231,4 +231,15 @@
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/editText4" />
 
+    <Button
+        android:id="@+id/SkillButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="12dp"
+        android:text="Skills"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CharacterText" />
+
 </android.support.constraint.ConstraintLayout>

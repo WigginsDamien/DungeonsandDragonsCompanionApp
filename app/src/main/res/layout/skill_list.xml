@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Strength Skills"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:text="Athletics"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Dexterity Skills"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:text="Acrobatics"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="8dp"
+        android:text="Sleight of Hand"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="8dp"
+        android:text="Stealth"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/TextView17"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Intelligence Skills"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Arcana"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextView17" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:textSize="18dp"
+        android:layout_marginStart="8dp"
+        android:text="History"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:textSize="18dp"
+        android:layout_marginStart="8dp"
+        android:text="Investigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:textSize="18dp"
+        android:layout_marginStart="8dp"
+        android:text="Nature"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:textSize="18dp"
+        android:layout_marginStart="8dp"
+        android:text="Religion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Wisdom Skills"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:textSize="18dp"
+        android:layout_marginEnd="8dp"
+        android:text="Animal Handling"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:textSize="18dp"
+        android:layout_marginEnd="8dp"
+        android:text="Insight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:textSize="18dp"
+        android:layout_marginEnd="8dp"
+        android:text="Medicine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:textSize="18dp"
+        android:layout_marginEnd="8dp"
+        android:text="Perception"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:textSize="18dp"
+        android:layout_marginEnd="8dp"
+        android:text="Survival"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Charisma Skills"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:textSize="18dp"
+        android:layout_marginStart="8dp"
+        android:text="Deception"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:textSize="18dp"
+        android:layout_marginStart="8dp"
+        android:text="Intimidation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:textSize="18dp"
+        android:layout_marginStart="8dp"
+        android:text="Performance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:textSize="18dp"
+        android:layout_marginStart="8dp"
+        android:text="Persuasion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
+</android.support.constraint.ConstraintLayout>
