@@ -4,6 +4,7 @@ package com.harrowedtale.dungeonsanddragonscompanionapp;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -96,11 +97,23 @@ public class CharacterSheet extends AppCompatActivity {
                         mText5= (EditText) findViewById(R.id.editText5);
                         mText6= (EditText) findViewById(R.id.editText6);
                         mText1.setText("");
+                        mText1.setInputType(InputType.TYPE_CLASS_TEXT);
+
                         mText2.setText("");
+                        mText2.setInputType(InputType.TYPE_CLASS_TEXT);
+
                         mText3.setText("");
+                        mText3.setInputType(InputType.TYPE_CLASS_NUMBER);
+
                         mText4.setText("");
+                        mText4.setInputType(InputType.TYPE_CLASS_NUMBER);
+
                         mText5.setText("");
+                        mText6.setInputType(InputType.TYPE_CLASS_TEXT);
+
                         mText6.setText("");
+                        mText6.setInputType(InputType.TYPE_CLASS_TEXT);
+
                         mText1.setText(mText1.getText()+CharName);
                         mText2.setText(mText2.getText()+CharClass);
                         mText3.setText(mText3.getText()+CharLevel);
@@ -141,11 +154,23 @@ public class CharacterSheet extends AppCompatActivity {
                     mText5= (EditText) findViewById(R.id.editText5);
                     mText6= (EditText) findViewById(R.id.editText6);
                     mText1.setText("");
+                    mText1.setInputType(InputType.TYPE_CLASS_NUMBER);
+
                     mText2.setText("");
+                    mText2.setInputType(InputType.TYPE_CLASS_NUMBER);
+
                     mText3.setText("");
+                    mText3.setInputType(InputType.TYPE_CLASS_NUMBER);
+
                     mText4.setText("");
+                    mText4.setInputType(InputType.TYPE_CLASS_NUMBER);
+
                     mText5.setText("");
+                    mText5.setInputType(InputType.TYPE_CLASS_NUMBER);
+
                     mText6.setText("");
+                    mText6.setInputType(InputType.TYPE_CLASS_NUMBER);
+
                     mText1.setText(mText1.getText()+CharStr);
                     mText2.setText(mText2.getText()+CharDex);
                     mText3.setText(mText3.getText()+CharCon);
@@ -174,6 +199,14 @@ public class CharacterSheet extends AppCompatActivity {
                     Button SaveButton=findViewById(R.id.SaveButton);
                     String CharProf1=Stats[12];
                     String CharProf2=Stats[13];
+                    String CharProf3="";
+                    String CharProf4="";
+
+
+
+
+
+
 
                     mText1= (EditText) findViewById(R.id.editText1);
                     mText2= (EditText) findViewById(R.id.editText2);
@@ -181,20 +214,47 @@ public class CharacterSheet extends AppCompatActivity {
                     mText4= (EditText) findViewById(R.id.editText4);
                     mText5= (EditText) findViewById(R.id.editText5);
                     mText6= (EditText) findViewById(R.id.editText6);
+
                     mText1.setText("");
+                    mText1.setInputType(InputType.TYPE_CLASS_TEXT);
+
                     mText2.setText("");
+                    mText2.setInputType(InputType.TYPE_CLASS_TEXT);
+
                     mText3.setText("");
+                    mText3.setInputType(InputType.TYPE_CLASS_TEXT);
+
                     mText4.setText("");
+                    mText4.setInputType(InputType.TYPE_CLASS_TEXT);
+
                     mText5.setText("");
                     mText6.setText("");
+
                     mText1.setText(mText1.getText()+CharProf1);
                     mText2.setText(mText2.getText()+CharProf2);
+                    if(Stats[1].equals("Bard")) {
+                        CharProf3 = Stats[14];
+                        mText3.setText(mText3.getText()+CharProf3);
+                    }if(Stats[1].equals("Rogue")) {
+                        CharProf3 = Stats[14];
+                        mText3.setText(mText3.getText()+CharProf3);
+                        CharProf4 = Stats[15];
+                        mText4.setText(mText4.getText()+CharProf4);
+                    }
+
+
 
                     SaveButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             Stats[12]=mText1.getText().toString();
                             Stats[13]=mText2.getText().toString();
+                            if(Stats[1].equals("Bard")){
+                                Stats[14]=mText3.getText().toString();
+                            }if(Stats[1].equals("Rogue")) {
+                                Stats[14]=mText3.getText().toString();
+                                Stats[15]=mText4.getText().toString();
+                            }
 
                             CreateCharacter(Stats[0],Stats);
                         }
@@ -315,11 +375,16 @@ public class CharacterSheet extends AppCompatActivity {
         writeToFile(Name,jsonify(Stat[11]));
         writeToFile(Name,jsonify(Stat[12]));
         writeToFile(Name,jsonify(Stat[13]));
-        /*
-        writeToFile(Name,jsonify(Stat[14]));
-        writeToFile(Name,jsonify(Stat[15]));
-        writeToFile(Name,jsonify(Stat[16]));
-        */
+        if(Stat[1].equals("Bard")) {
+            writeToFile(Name,jsonify(Stat[14]));
+        }if(Stat[1].equals("Rogue")) {
+            writeToFile(Name,jsonify(Stat[14]));
+            writeToFile(Name,jsonify(Stat[15]));
+        }
+
+
+
+
             /*
         writeToFile(newCharacter.getName(),jsonify(newCharacter.getLevel()));
         writeToFile(newCharacter.getName(),jsonify(newCharacter.getHP()));
