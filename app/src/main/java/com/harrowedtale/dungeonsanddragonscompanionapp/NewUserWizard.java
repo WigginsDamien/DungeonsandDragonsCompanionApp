@@ -134,6 +134,7 @@ public class NewUserWizard extends AppCompatActivity {
 
     public void CreateCharacter(){
         NewCharacterSingleton newCharacter = NewCharacterSingleton.getInstance();
+        int strBonus=0,dexBonus=0,conBonus=0,intBonus=0,wisBonus=0,chaBonus=0;
         writeToNewFile(newCharacter.getName(),jsonify(newCharacter.getName()));
         writeToFile(newCharacter.getName(),jsonify(newCharacter.getCharacterClass()));
 
@@ -141,13 +142,44 @@ public class NewUserWizard extends AppCompatActivity {
         writeToFile(newCharacter.getName(),jsonify(newCharacter.getHP()));
         writeToFile(newCharacter.getName() ,jsonify(newCharacter.getAlignment()));
         writeToFile(newCharacter.getName() ,jsonify(newCharacter.getRace()));
+        if(newCharacter.getRace().equals("Dragonborn")){
+            strBonus=2;
+            chaBonus=1;
+        }if(newCharacter.getRace().equals("Dwarf")){
+            conBonus=2;
+        }if(newCharacter.getRace().equals("Elf")){
+            dexBonus=2;
+        }if(newCharacter.getRace().equals("Gnome")){
+            intBonus=2;
+        }if(newCharacter.getRace().equals("Half-Elf")){
+            chaBonus=2;
+            dexBonus=1;
+            wisBonus=1;
+        }if(newCharacter.getRace().equals("Half-Orc")){
+            strBonus=2;
+            conBonus=1;
+        }if(newCharacter.getRace().equals("Halfling")){
+            dexBonus=2;
+        }if(newCharacter.getRace().equals("Hobgoblin")){
+            conBonus=2;
+            intBonus=1;
+        }if(newCharacter.getRace().equals("Human")){
+            strBonus=1;
+            dexBonus=1;
+            conBonus=1;
+            intBonus=1;
+            wisBonus=1;
+            chaBonus=1;
+        }if(newCharacter.getRace().equals("Tiefling")){
+            chaBonus=1;
+        }
 
-        writeToFile(newCharacter.getName() ,jsonify(newCharacter.getStrength()));
-        writeToFile(newCharacter.getName() ,jsonify(newCharacter.getDexterity()));
-        writeToFile(newCharacter.getName() ,jsonify(newCharacter.getConstitution()));
-        writeToFile(newCharacter.getName() ,jsonify(newCharacter.getIntelligence()));
-        writeToFile(newCharacter.getName() ,jsonify(newCharacter.getWisdom()));
-        writeToFile(newCharacter.getName() ,jsonify(newCharacter.getCharisma()));
+        writeToFile(newCharacter.getName() ,jsonify(String.valueOf(Integer.valueOf(newCharacter.getStrength())+strBonus)) );
+        writeToFile(newCharacter.getName() ,jsonify(String.valueOf(Integer.valueOf(newCharacter.getDexterity())+dexBonus)) );
+        writeToFile(newCharacter.getName() ,jsonify(String.valueOf(Integer.valueOf(newCharacter.getConstitution())+conBonus)) );
+        writeToFile(newCharacter.getName() ,jsonify(String.valueOf(Integer.valueOf(newCharacter.getIntelligence())+intBonus)) );
+        writeToFile(newCharacter.getName() ,jsonify(String.valueOf(Integer.valueOf(newCharacter.getWisdom())+wisBonus)) );
+        writeToFile(newCharacter.getName() ,jsonify(String.valueOf(Integer.valueOf(newCharacter.getCharisma())+chaBonus)) );
 
         writeToFile(newCharacter.getName() ,jsonify(newCharacter.getFirstProficiency()));
         writeToFile(newCharacter.getName() ,jsonify(newCharacter.getSecondProficiency()));
