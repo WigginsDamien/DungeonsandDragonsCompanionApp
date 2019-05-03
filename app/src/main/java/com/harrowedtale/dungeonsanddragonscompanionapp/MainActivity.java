@@ -1,12 +1,19 @@
 package com.harrowedtale.dungeonsanddragonscompanionapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        File f = new File("customItem");
+        if(!f.exists()) {
+            writeToNewFile("customItem", "");
+        }
         mainGrid = (GridLayout) findViewById(R.id.menu_list);
 
         //Set event
@@ -65,6 +76,19 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
+        }
+    }
+    private void writeToNewFile(String Name,String data) {
+        try {
+            //Context.MODE_PRIVATE creates a new file every time, this is what we want to do for the character creation wizard
+            //for viewing/editing existing files we are going to need to use Context.MODE_APPEND
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.openFileOutput(Name, Context.MODE_PRIVATE));
+            outputStreamWriter.write(data);
+            outputStreamWriter.close();
+            Toast.makeText(getBaseContext(), "File saved successfully!",
+                    Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            Log.e("Exception", "File write failed: " + e.toString());
         }
     }
 

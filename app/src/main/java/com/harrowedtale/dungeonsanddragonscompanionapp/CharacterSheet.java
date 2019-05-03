@@ -53,7 +53,8 @@ public class CharacterSheet extends AppCompatActivity {
     FileOutputStream outputStream;
     String path="/data/data/com.harrowedtale.dungeonsanddragonscompanionapp/files";
     File[] Characters=new File(path).listFiles();
-    String CharacterList[]= new String[Characters.length];
+    String CharacterList2[]= new String[Characters.length];
+    String CharacterList[]= new String[Characters.length-1];
     //File file = new File(context.getFilesDir(), filename);
 
     //To view created files on android studio go to view -> Tool Windows -> Device File Explorer
@@ -66,11 +67,14 @@ public class CharacterSheet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.character_sheet);
 
-        for (int i = 0; i < Characters.length; i++) {
-            Log.d("Characters", "CharacterName:" + Characters[i].getName());
-            CharacterList[i] = Characters[i].getName();
-        }
 
+
+        for (int i = 0; i < Characters.length; i++) {
+            if (!Characters[i].getName().equals("customItem")) {
+                Log.d("Characters", "CharacterName:" + Characters[i].getName());
+                CharacterList[i] = Characters[i].getName();
+            }
+        }
         Spinner spinner = (Spinner) findViewById(R.id.characterSelectSpinner);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, CharacterList);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
