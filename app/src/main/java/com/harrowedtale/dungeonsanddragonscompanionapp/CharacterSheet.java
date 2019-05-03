@@ -40,8 +40,15 @@ public class CharacterSheet extends AppCompatActivity {
     EditText mText4;
     EditText mText5;
     EditText mText6;
+    TextView tText1;
+    TextView tText2;
+    TextView tText3;
+    TextView tText4;
+    TextView tText5;
+    TextView tText6;
+
     String buffdude;
-    String bufferdude;
+    int bufferdude;
     String fileContents = "Hello world!";
     FileOutputStream outputStream;
     String path="/data/data/com.harrowedtale.dungeonsanddragonscompanionapp/files";
@@ -96,21 +103,35 @@ public class CharacterSheet extends AppCompatActivity {
                         mText4= (EditText) findViewById(R.id.editText4);
                         mText5= (EditText) findViewById(R.id.editText5);
                         mText6= (EditText) findViewById(R.id.editText6);
+                        tText1= (TextView) findViewById(R.id.textView1);
+                        tText2= (TextView) findViewById(R.id.textView2);
+                        tText3= (TextView) findViewById(R.id.textView3);
+                        tText4= (TextView) findViewById(R.id.textView4);
+                        tText5= (TextView) findViewById(R.id.textView5);
+                        tText6= (TextView) findViewById(R.id.textView6);
+
+                        tText1.setText("AC: " + String.valueOf( ((Integer.valueOf(Stats[7])-10)/2)+10 ));
                         mText1.setText("");
                         mText1.setInputType(InputType.TYPE_CLASS_TEXT);
+                        bufferdude=((int) Math.ceil( Integer.valueOf(CharLevel)/4.0 ))+1;
 
+                        tText2.setText("Prof Bonus: "+ bufferdude);
                         mText2.setText("");
                         mText2.setInputType(InputType.TYPE_CLASS_TEXT);
 
+                        tText3.setText("Level");
                         mText3.setText("");
                         mText3.setInputType(InputType.TYPE_CLASS_NUMBER);
 
+                        tText4.setText("Health");
                         mText4.setText("");
                         mText4.setInputType(InputType.TYPE_CLASS_NUMBER);
 
+                        tText5.setText("");
                         mText5.setText("");
                         mText6.setInputType(InputType.TYPE_CLASS_TEXT);
 
+                        tText6.setText("");
                         mText6.setText("");
                         mText6.setInputType(InputType.TYPE_CLASS_TEXT);
 
@@ -153,21 +174,34 @@ public class CharacterSheet extends AppCompatActivity {
                     mText4= (EditText) findViewById(R.id.editText4);
                     mText5= (EditText) findViewById(R.id.editText5);
                     mText6= (EditText) findViewById(R.id.editText6);
+                    tText1= (TextView) findViewById(R.id.textView1);
+                    tText2= (TextView) findViewById(R.id.textView2);
+                    tText3= (TextView) findViewById(R.id.textView3);
+                    tText4= (TextView) findViewById(R.id.textView4);
+                    tText5= (TextView) findViewById(R.id.textView5);
+                    tText6= (TextView) findViewById(R.id.textView6);
+
+                    tText1.setText("Strength ("+String.valueOf((Integer.valueOf(CharStr)-10)/2)+")");
                     mText1.setText("");
                     mText1.setInputType(InputType.TYPE_CLASS_NUMBER);
 
+                    tText2.setText("Dexterity ("+String.valueOf((Integer.valueOf(CharDex)-10)/2)+")");
                     mText2.setText("");
                     mText2.setInputType(InputType.TYPE_CLASS_NUMBER);
 
+                    tText3.setText("Constitution ("+String.valueOf((Integer.valueOf(CharCon)-10)/2)+")");
                     mText3.setText("");
                     mText3.setInputType(InputType.TYPE_CLASS_NUMBER);
 
+                    tText4.setText("Intelligence ("+String.valueOf((Integer.valueOf(CharInt)-10)/2)+")");
                     mText4.setText("");
                     mText4.setInputType(InputType.TYPE_CLASS_NUMBER);
 
+                    tText5.setText("Wisdom ("+String.valueOf((Integer.valueOf(CharWis)-10)/2)+")");
                     mText5.setText("");
                     mText5.setInputType(InputType.TYPE_CLASS_NUMBER);
 
+                    tText6.setText("Charisma ("+String.valueOf((Integer.valueOf(CharCha)-10)/2)+")");
                     mText6.setText("");
                     mText6.setInputType(InputType.TYPE_CLASS_NUMBER);
 
@@ -214,20 +248,33 @@ public class CharacterSheet extends AppCompatActivity {
                     mText4= (EditText) findViewById(R.id.editText4);
                     mText5= (EditText) findViewById(R.id.editText5);
                     mText6= (EditText) findViewById(R.id.editText6);
+                    tText1= (TextView) findViewById(R.id.textView1);
+                    tText2= (TextView) findViewById(R.id.textView2);
+                    tText3= (TextView) findViewById(R.id.textView3);
+                    tText4= (TextView) findViewById(R.id.textView4);
+                    tText5= (TextView) findViewById(R.id.textView5);
+                    tText6= (TextView) findViewById(R.id.textView6);
 
                     mText1.setText("");
+                    tText1.setText("");
                     mText1.setInputType(InputType.TYPE_CLASS_TEXT);
 
+                    tText2.setText("");
                     mText2.setText("");
                     mText2.setInputType(InputType.TYPE_CLASS_TEXT);
 
+                    tText3.setText("");
                     mText3.setText("");
                     mText3.setInputType(InputType.TYPE_CLASS_TEXT);
 
+                    tText4.setText("");
                     mText4.setText("");
                     mText4.setInputType(InputType.TYPE_CLASS_TEXT);
 
+                    tText5.setText("");
                     mText5.setText("");
+
+                    tText6.setText("");
                     mText6.setText("");
 
                     mText1.setText(mText1.getText()+CharProf1);
