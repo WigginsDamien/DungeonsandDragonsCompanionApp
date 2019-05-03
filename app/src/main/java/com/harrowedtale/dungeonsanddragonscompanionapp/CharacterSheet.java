@@ -243,12 +243,12 @@ public class CharacterSheet extends AppCompatActivity {
 
                     Button SkillButton=findViewById(R.id.SkillButton);
                     SkillButton.setVisibility(View.VISIBLE);
-
+                    String bonus;
                     String CharProf1=Stats[12];
                     String CharProf2=Stats[13];
                     String CharProf3="";
                     String CharProf4="";
-
+                    bufferdude=((int) Math.ceil( Integer.valueOf(Stats[2])/4.0 ))+1;
 
 
 
@@ -291,15 +291,30 @@ public class CharacterSheet extends AppCompatActivity {
                     mText6.setText("");
 
                     mText1.setText(mText1.getText()+CharProf1);
+                    bonus=findAblity(CharProf1,Stats);
+                    tText1.setText(String.valueOf(Integer.valueOf(bonus)+Integer.valueOf(bufferdude)));
+
                     mText2.setText(mText2.getText()+CharProf2);
+                    bonus=findAblity(CharProf2,Stats);
+                    tText2.setText(String.valueOf(Integer.valueOf(bonus)+Integer.valueOf(bufferdude)));
+
                     if(Stats[1].equals("Bard")) {
                         CharProf3 = Stats[14];
                         mText3.setText(mText3.getText()+CharProf3);
+                        bonus=findAblity(CharProf3,Stats);
+                        tText3.setText(String.valueOf(Integer.valueOf(bonus)+Integer.valueOf(bufferdude)));
+
                     }if(Stats[1].equals("Rogue")) {
                         CharProf3 = Stats[14];
                         mText3.setText(mText3.getText()+CharProf3);
+                        bonus=findAblity(CharProf3,Stats);
+                        tText3.setText(String.valueOf(Integer.valueOf(bonus)+Integer.valueOf(bufferdude)));
+
                         CharProf4 = Stats[15];
                         mText4.setText(mText4.getText()+CharProf4);
+                        bonus=findAblity(CharProf4,Stats);
+                        tText4.setText(String.valueOf(Integer.valueOf(bonus)+Integer.valueOf(bufferdude)));
+
                     }
 
 
@@ -425,6 +440,30 @@ public class CharacterSheet extends AppCompatActivity {
         jsonString=input+ "\n";
         return jsonString;
     }
+
+    public String findAblity(String skill,String Stat[]){
+        String bonus="0";
+        if(skill.equals("Athletics")){
+           bonus=String.valueOf(( Integer.valueOf(Stat[6])-10)/2);
+
+        }if(skill.equals("Acrobatics") || skill.equals("Sleight of Hand") ||  skill.equals("Stealth")){
+            bonus=String.valueOf(( Integer.valueOf(Stat[7])-10)/2);
+
+        }if(skill.equals("Arcana") || skill.equals("History") || skill.equals("Investigation")
+                || skill.equals("Nature") || skill.equals("Religion")){
+            bonus=String.valueOf(( Integer.valueOf(Stat[9])-10)/2);
+
+        }if(skill.equals("Animal Handling") || skill.equals("Insight")|| skill.equals("Medicine")
+                || skill.equals("Perception") || skill.equals("Survival")){
+            bonus=String.valueOf(( Integer.valueOf(Stat[10])-10)/2);
+
+        }if(skill.equals("Deception") || skill.equals("Intimidation") || skill.equals("Performance")|| skill.equals("Persuasion")){
+            bonus=String.valueOf(( Integer.valueOf(Stat[11])-10)/2);
+        }
+        return bonus;
+    }
+
+  
 
     public void CreateCharacter(String Name,String Stat[]){
 
