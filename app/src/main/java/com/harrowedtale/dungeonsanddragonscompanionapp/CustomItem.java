@@ -32,7 +32,9 @@ public class CustomItem extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.custom_item);
-
+        buffdu = read_file("customItem");
+        mText = findViewById(R.id.textView9);
+        mText.setText(buffdu);
         buttonName = findViewById(R.id.buttonName);
         buttonName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,38 +43,24 @@ public class CustomItem extends AppCompatActivity {
 
                 fileContent = customItem.getText().toString();
 
-                writeToNewFile(jsonfy("custom_item", fileContent));
+                writeToFile(jsonfy(fileContent));
 
-                buffdu = read_file("customitem.txt");
+                buffdu = read_file("customItem");
 
                 mText = findViewById(R.id.textView9);
-                mText.setText("Welcome " + buffdu + "!");
+                mText.setText(buffdu);
             }
         });
     }
 
-    private void writeToNewFile(String data) {
-        try {
-            //Context.MODE_PRIVATE creates a new file every time, this is what we want to do for the character creation wizard
-            //for viewing/editing existing files we are going to need to use Context.MODE_APPEND
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.openFileOutput("customitem.txt", Context.MODE_PRIVATE));
-            outputStreamWriter.write(data);
-            outputStreamWriter.close();
-            Toast.makeText(getBaseContext(), "File saved successfully!",
-                    Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            Log.e("Exception", "File write failed: " + e.toString());
-        }
 
-
-    }
 
 
 
     private void writeToFile(String data) {
         try {
             //for viewing/editing existing files we are going to need to use Context.MODE_APPEND
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.openFileOutput("character1.txt", Context.MODE_APPEND));
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.openFileOutput("customItem", Context.MODE_APPEND));
             outputStreamWriter.write(data);
             outputStreamWriter.close();
             Toast.makeText(getBaseContext(), "File saved successfully!",
@@ -102,9 +90,9 @@ public class CustomItem extends AppCompatActivity {
         }
     }
 
-    public String jsonfy(String category, String input){
+    public String jsonfy(String input){
         String jsonString;
-        jsonString="{ \"" +category +"\":" + "\"" +input+ "\"" + " }";
+        jsonString=input+"\n";
         return jsonString;
     }
 

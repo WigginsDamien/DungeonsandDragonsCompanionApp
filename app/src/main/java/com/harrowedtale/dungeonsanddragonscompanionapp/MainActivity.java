@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         File f = new File("customItem");
         if(!f.exists()) {
-            writeToNewFile("customItem", "");
+            writeToFile("customItem", "");
         }
         mainGrid = (GridLayout) findViewById(R.id.menu_list);
 
@@ -78,11 +78,11 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
-    private void writeToNewFile(String Name,String data) {
+    private void writeToFile(String Name,String data) {
         try {
             //Context.MODE_PRIVATE creates a new file every time, this is what we want to do for the character creation wizard
             //for viewing/editing existing files we are going to need to use Context.MODE_APPEND
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.openFileOutput(Name, Context.MODE_PRIVATE));
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.openFileOutput(Name, Context.MODE_APPEND));
             outputStreamWriter.write(data);
             outputStreamWriter.close();
             Toast.makeText(getBaseContext(), "File saved successfully!",
