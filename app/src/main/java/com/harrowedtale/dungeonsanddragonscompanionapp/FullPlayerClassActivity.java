@@ -369,55 +369,7 @@ public class FullPlayerClassActivity extends AppCompatActivity {
                     textView2.setText(class_info.toString());
                     ClassLayout.addView(textView2);
                 }
-                    for(int i = 0; i < subclass.size(); i++) {//get all subclass features added to layout
-                        if(i == 0 || i ==1 ) {
-                            class_data = (String) subclass.get(i);
-                        }
-                        else {
-                            Map<String, Object> subclass_features = (Map<String,Object>) subclass.get(i);
-                            class_data = (String) subclass_features.get("name");
-                            TextView textView3 = new TextView(ClassLayout.getContext());
-                            layoutParams.setMargins(15, 10, 10, 10); // (left, top, right, bottom)
-                            textView3.setLayoutParams(layoutParams);
-                            textView3.setText(class_data);
-                            textView3.setTextSize(16);
-                            textView3.setTypeface(Typeface.DEFAULT_BOLD);
-                            // textView3.setTextColor(Color.parseColor("#6d1b1b"));
-                            ClassLayout.addView(textView3);
-                            class_data = (String) subclass_features.get("description");
-                            TextView textView4 = new TextView(ClassLayout.getContext());
-                            layoutParams.setMargins(15, 10, 10, 10); // (left, top, right, bottom)
-                            textView4.setLayoutParams(layoutParams);
-                            textView4.setText(class_data);
-                            ClassLayout.addView(textView4);
-                            ArrayList<String> subclassfeatures = (ArrayList<String>) subclass_features.get("features");
-                            for(int o = 0; o < subclassfeatures.size(); o++) {
-                                if(o % 2 == 0) {
-                                    class_data = (String) subclassfeatures.get(o);
-                                    TextView textViewfeatureheader = new TextView(ClassLayout.getContext());
-                                    layoutParams.setMargins(15, 10, 10, 10); // (left, top, right, bottom)
-                                    textViewfeatureheader.setLayoutParams(layoutParams);
-                                    textViewfeatureheader.setText(class_data);
-                                    textViewfeatureheader.setTextSize(16);
-                                    //   textViewfeatureheader.setTextColor(Color.parseColor("#6d1b1b"));
-                                    ClassLayout.addView(textViewfeatureheader);
-                                }
-                                else {
-                                    class_data = (String) subclassfeatures.get(o);
-                                    TextView textViewfeaturedesscription = new TextView(ClassLayout.getContext());
-                                    layoutParams.setMargins(15, 10, 10, 10); // (left, top, right, bottom)
-                                    textViewfeaturedesscription.setLayoutParams(layoutParams);
-                                    textViewfeaturedesscription.setText(class_data);
-                                    ClassLayout.addView(textViewfeaturedesscription);
-                                }
-                            }
-                        }
-                        TextView textView4 = new TextView(ClassLayout.getContext());
-                        layoutParams.setMargins(15, 10, 10, 10); // (left, top, right, bottom)
-                        textView4.setLayoutParams(layoutParams);
-                        textView4.setText(class_data);
-                        ClassLayout.addView(textView4);
-                    }
+
                 /*if(!(subClass.isEmpty())) {
                     subclass = subClass;
                     for(int i = 0; i < subclass.size(); i++) {//get all subclass features added to layout
@@ -498,7 +450,55 @@ public class FullPlayerClassActivity extends AppCompatActivity {
                     textView4.setText(class_data);
                     ClassLayout.addView(textView4);
                 }
-
+                for(int i = 0; i < subclass.size(); i++) {//get all subclass features added to layout
+                    if(i == 0 || i ==1 ) {
+                        class_data = (String) subclass.get(i);
+                    }
+                    else {
+                        Map<String, Object> subclass_features = (Map<String,Object>) subclass.get(i);
+                        class_data = (String) subclass_features.get("name");
+                        TextView textView3 = new TextView(ClassLayout.getContext());
+                        layoutParams.setMargins(15, 10, 10, 10); // (left, top, right, bottom)
+                        textView3.setLayoutParams(layoutParams);
+                        textView3.setText(class_data);
+                        textView3.setTextSize(16);
+                        textView3.setTypeface(Typeface.DEFAULT_BOLD);
+                        // textView3.setTextColor(Color.parseColor("#6d1b1b"));
+                        ClassLayout.addView(textView3);
+                        class_data = (String) subclass_features.get("description");
+                        TextView textView4 = new TextView(ClassLayout.getContext());
+                        layoutParams.setMargins(15, 10, 10, 10); // (left, top, right, bottom)
+                        textView4.setLayoutParams(layoutParams);
+                        textView4.setText(class_data);
+                        ClassLayout.addView(textView4);
+                        ArrayList<String> subclassfeatures = (ArrayList<String>) subclass_features.get("features");
+                        for(int o = 0; o < subclassfeatures.size(); o++) {
+                            if(o % 2 == 0) {
+                                class_data = (String) subclassfeatures.get(o);
+                                TextView textViewfeatureheader = new TextView(ClassLayout.getContext());
+                                layoutParams.setMargins(15, 10, 10, 10); // (left, top, right, bottom)
+                                textViewfeatureheader.setLayoutParams(layoutParams);
+                                textViewfeatureheader.setText(class_data);
+                                textViewfeatureheader.setTextSize(16);
+                                //   textViewfeatureheader.setTextColor(Color.parseColor("#6d1b1b"));
+                                ClassLayout.addView(textViewfeatureheader);
+                            }
+                            else {
+                                class_data = (String) subclassfeatures.get(o);
+                                TextView textViewfeaturedesscription = new TextView(ClassLayout.getContext());
+                                layoutParams.setMargins(15, 10, 10, 10); // (left, top, right, bottom)
+                                textViewfeaturedesscription.setLayoutParams(layoutParams);
+                                textViewfeaturedesscription.setText(class_data);
+                                ClassLayout.addView(textViewfeaturedesscription);
+                            }
+                        }
+                    }
+                    TextView textView4 = new TextView(ClassLayout.getContext());
+                    layoutParams.setMargins(15, 10, 10, 10); // (left, top, right, bottom)
+                    textView4.setLayoutParams(layoutParams);
+                    textView4.setText(class_data);
+                    ClassLayout.addView(textView4);
+                }
             }
         });
     }
