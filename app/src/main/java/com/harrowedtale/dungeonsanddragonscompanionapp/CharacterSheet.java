@@ -69,11 +69,12 @@ public class CharacterSheet extends AppCompatActivity {
         setContentView(R.layout.character_sheet);
 
 
-
+        int j=0;
         for (int i = 0; i < Characters.length; i++) {
             if (!Characters[i].getName().equals("customItem")) {
                 Log.d("Characters", "CharacterName:" + Characters[i].getName());
-                CharacterList[i] = Characters[i].getName();
+                CharacterList[j] = Characters[i].getName();
+                j++;
             }
         }
         Spinner spinner = (Spinner) findViewById(R.id.characterSelectSpinner);
@@ -303,7 +304,8 @@ public class CharacterSheet extends AppCompatActivity {
                         mText3.setText(mText3.getText()+CharProf3);
                         bonus=findAblity(CharProf3,Stats);
                         tText3.setText(String.valueOf(Integer.valueOf(bonus)+Integer.valueOf(bufferdude)));
-
+                        tText5.setText("Dexterity Bonus: "+String.valueOf((Integer.valueOf(Stats[7])-10)/2 +bufferdude));
+                        tText6.setText("Charisma Bonus: "+String.valueOf((Integer.valueOf(Stats[11])-10)/2 + bufferdude));
                     }if(Stats[1].equals("Rogue")) {
                         CharProf3 = Stats[14];
                         mText3.setText(mText3.getText()+CharProf3);
@@ -314,9 +316,25 @@ public class CharacterSheet extends AppCompatActivity {
                         mText4.setText(mText4.getText()+CharProf4);
                         bonus=findAblity(CharProf4,Stats);
                         tText4.setText(String.valueOf(Integer.valueOf(bonus)+Integer.valueOf(bufferdude)));
+                        tText5.setText("Dexterity Bonus: "+String.valueOf((Integer.valueOf(Stats[7])-10)/2 +bufferdude));
+                        tText6.setText("Intelligence Bonus: "+String.valueOf((Integer.valueOf(Stats[9])-10)/2 + bufferdude));
 
+                    }if(Stats[1].equals("Fighter")|| Stats[1].equals("Barbarian")) {
+                        tText5.setText("Strength Bonus: "+String.valueOf((Integer.valueOf(Stats[6])-10)/2 +bufferdude));
+                        tText6.setText("Constitution Bonus: "+String.valueOf((Integer.valueOf(Stats[8])-10)/2 + bufferdude));
+                    }if(Stats[1].equals("Cleric")|| Stats[1].equals("Paladin")|| Stats[1].equals("Warlock") ) {
+                        tText5.setText("Wisdom Bonus: "+String.valueOf((Integer.valueOf(Stats[10])-10)/2 +bufferdude));
+                        tText6.setText("Charisma Bonus: "+String.valueOf((Integer.valueOf(Stats[11])-10)/2 + bufferdude));
+                    }if(Stats[1].equals("Monk")|| Stats[1].equals("Ranger")) {
+                        tText5.setText("Strength Bonus: "+String.valueOf((Integer.valueOf(Stats[6])-10)/2 +bufferdude));
+                        tText6.setText("Dexterity Bonus: "+String.valueOf((Integer.valueOf(Stats[7])-10)/2 + bufferdude));
+                    }if(Stats[1].equals("Druid")|| Stats[1].equals("Wizard")) {
+                        tText5.setText("Intelligence Bonus: "+String.valueOf((Integer.valueOf(Stats[9])-10)/2 +bufferdude));
+                        tText6.setText("Wisdom Bonus: "+String.valueOf((Integer.valueOf(Stats[10])-10)/2 + bufferdude));
+                    }if(Stats[1].equals("Sorcerer")) {
+                        tText5.setText("Constitution Bonus: "+String.valueOf((Integer.valueOf(Stats[8])-10)/2 +bufferdude));
+                        tText6.setText("Charisma Bonus: "+String.valueOf((Integer.valueOf(Stats[11])-10)/2 + bufferdude));
                     }
-
 
 
                     SaveButton.setOnClickListener(new View.OnClickListener() {
@@ -463,7 +481,7 @@ public class CharacterSheet extends AppCompatActivity {
         return bonus;
     }
 
-  
+
 
     public void CreateCharacter(String Name,String Stat[]){
 
