@@ -25,6 +25,11 @@
                 android:layout_height="match_parent"
                 android:shrinkColumns="1"/>
 
+            <TextView
+                android:id="@+id/spelltableHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <TableLayout
                 android:id="@+id/spellTable"
                 android:layout_width="match_parent"

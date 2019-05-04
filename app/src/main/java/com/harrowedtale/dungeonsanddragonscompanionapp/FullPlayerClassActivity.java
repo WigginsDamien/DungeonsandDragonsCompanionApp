@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Layout;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -19,10 +18,9 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.lang.reflect.Array;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Set;
 
 public class FullPlayerClassActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -35,6 +33,10 @@ public class FullPlayerClassActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.race_fullinformation);
         ClassLayout = findViewById(R.id.raceLinLayout);
+        TextView classtableHeader = findViewById(R.id.spelltableHeader);
+        classtableHeader.setTextSize(20);
+        classtableHeader.setTypeface(Typeface.DEFAULT_BOLD);
+        classtableHeader.setPadding(10,0,10,0);
         ClassTable = findViewById(R.id.classTable);
         FeatureTable = findViewById(R.id.featureTable);
         SpellTable = findViewById(R.id.spellTable);
@@ -43,6 +45,9 @@ public class FullPlayerClassActivity extends AppCompatActivity {
         TableParams.setMargins(10, 0, 0, 0); // (left, top, right, bottom)
         Intent classIntent = getIntent();
         String className = classIntent.getStringExtra("Name");//get Class Name
+        if(!((className.equals("Fighter") || className.equals("Monk") || className.equals("Rogue") || className.equals("Warlock") || className.equals("Barbarian")))) {
+            classtableHeader.setText("Spellcasting\n__________________");
+        }
         setTitle(className);
         final DocumentReference classDoc = db.collection("Classes").document(className);//create document reference of class name
 
@@ -63,8 +68,13 @@ public class FullPlayerClassActivity extends AppCompatActivity {
                 classdata.remove("hitPoints");
                 Map<String, String> proficiencies = (Map<String, String>) classdata.get("proficiencies");
                 classdata.remove("proficiencies");
-                ArrayList<Object> subclass = (ArrayList<Object>) classdata.get("subclass");
-                ArrayList<Object> subClass = (ArrayList<Object>) classdata.get("subClass");
+                ArrayList<Object> subclass = new ArrayList<>();
+                if(classdata.containsKey("subclass")) {
+                    subclass = (ArrayList<Object>) classdata.get("subclass");
+                }
+                else {
+                    subclass = (ArrayList<Object>) classdata.get("subClass");
+                }
                 classdata.remove("subclass");
                 classdata.remove("subClass");
                 Map<String, Object> classtable = (Map<String, Object>) classdata.get("table");
@@ -85,8 +95,17 @@ public class FullPlayerClassActivity extends AppCompatActivity {
                 ClassLayout.addView(textView7);
                 for(Map.Entry<String,String> i : hitPoints.entrySet()) {
                     class_data = i.getKey();
-                    class_data = class_data.toUpperCase();
+                //    class_data = class_data.toUpperCase();
                     TextView textView6 = new TextView(ClassLayout.getContext());
+                    if(class_data.equals("firstLevel")) {
+                        class_data = "At Level 1";
+                    }
+                    if(class_data.equals("hitDice")) {
+                        class_data = "Hit Dice";
+                    }
+                    if(class_data.equals("higherLevels")) {
+                        class_data = "At Higher Levels";
+                    }
                     layoutParams.setMargins(15, 10, 10, 10); // (left, top, right, bottom)
                     textView6.setLayoutParams(layoutParams);
                     textView6.setText(class_data);
@@ -112,7 +131,21 @@ public class FullPlayerClassActivity extends AppCompatActivity {
                 ClassLayout.addView(textView8);
                 for(Map.Entry<String,String> i : proficiencies.entrySet()) {
                     class_data = i.getKey();
-                    class_data = class_data.toUpperCase();
+                    if(class_data.equals("armor")) {
+                        class_data = "Armor";
+                    }
+                    if(class_data.equals("savingThrows")) {
+                        class_data = "Saving Throws";
+                    }
+                    if(class_data.equals("skills")) {
+                        class_data = "Skills";
+                    }
+                    if(class_data.equals("tools")) {
+                        class_data = "Tools";
+                    }
+                    if(class_data.equals("weapons")) {
+                        class_data = "Weapons";
+                    }
                     TextView textView6 = new TextView(ClassLayout.getContext());
                     layoutParams.setMargins(15, 10, 10, 10); // (left, top, right, bottom)
                     textView6.setLayoutParams(layoutParams);
@@ -146,28 +179,7 @@ public class FullPlayerClassActivity extends AppCompatActivity {
                     textView5.setText(class_data);
                     ClassLayout.addView(textView5);
                 }
-                for(String key : classdata.keySet()) {
-                    class_data = key;
-                    class_info = classdata.get(key);
-                    TextView textView1 = new TextView(ClassLayout.getContext());
-                    textView1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
-                            LinearLayout.LayoutParams.WRAP_CONTENT));
-                    class_data = class_data.toUpperCase();
-                    textView1.setText(class_data);
-                    //textView1.setTypeface(Typeface.DEFAULT_BOLD);
-                    textView1.setTextColor(Color.parseColor("#6d1b1b"));
-                    textView1.setTextSize(20);
-                    textView1.setPadding(15, 20, 20, 20);// in pixels (left, top, right, bottom)
-                    ClassLayout.addView(textView1);
-                    // Add textview 2
-                    //TODO use key values, parse and use tables and maps and arrays n shit
 
-                    TextView textView2 = new TextView(ClassLayout.getContext());
-                    layoutParams.setMargins(15, 10, 10, 10); // (left, top, right, bottom)
-                    textView2.setLayoutParams(layoutParams);
-                    textView2.setText(class_info.toString());
-                    ClassLayout.addView(textView2);
-                }
                 String cantripData = "";
                 String classCountData = "";
                 String damageData = "";
@@ -224,7 +236,7 @@ public class FullPlayerClassActivity extends AppCompatActivity {
                 TableRow headerRow = new TableRow(ClassTable.getContext());
                 row.setLayoutParams(TableRowParams);
                 headerRow.setLayoutParams(TableRowParams);
-                String[] tableStatsheader = {"LVL", "Bonus", "Cantrips", "Count Avail", "Damage", "SpellSlots"};
+                String[] tableStatsheader = {"LVL", "Bonus", "Cantrips", "Count Avail", "Damage", "#Spells Known"};
 
                 for(int tablenum = 0; tablenum < tableStats.length; tablenum++) {
                     if(!(tableStats[tablenum].equals(""))) {
@@ -249,9 +261,14 @@ public class FullPlayerClassActivity extends AppCompatActivity {
                     TextView tableData = new TextView(ClassTable.getContext());
                     TextView tableHeader = new TextView(ClassTable.getContext());
                     TextView levelHeader = new TextView(ClassTable.getContext());
+                    TextView featureHead = new TextView(ClassTable.getContext());
+                    featureHead.setLayoutParams(TableParams);
+                    featureHead.setTypeface(Typeface.DEFAULT_BOLD);
+                    featureHead.setTextSize(16);
+                    featureHead.setText("Feature");
                     tableData.setText(featureData);
                     tableData.setLayoutParams(TableParams);
-                    tableHeader.setText("Features by Level");
+                    tableHeader.setText("LVL");
                     tableHeader.setTextSize(16);
                     tableHeader.setTypeface(Typeface.DEFAULT_BOLD);
                     tableHeader.setLayoutParams(TableParams);
@@ -259,7 +276,25 @@ public class FullPlayerClassActivity extends AppCompatActivity {
                     levelHeader.setText(levelData);
                     featureinfo.addView(levelHeader);
                     featureinfo.addView(tableData);
-                  //  featureHeader.addView(tableHeader);
+                    featureHeader.addView(tableHeader);
+                    featureHeader.addView(featureHead);
+                    if(classDoc.getId().equals("Warlock")) {
+                        String levelinfo;
+                    ArrayList<String> spellSlots = (ArrayList<String>) classtable.get("spellSlots");
+                    TextView spellHeader = new TextView(ClassTable.getContext());
+                    TextView spellDescription = new TextView(ClassTable.getContext());
+                    spellHeader.setLayoutParams(TableParams);
+                    spellDescription.setLayoutParams(TableParams);
+                    levelinfo = "";
+                    for (String j : spellSlots) {
+                        levelinfo += j + "\n";
+                    }
+                    spellHeader.setTypeface(Typeface.DEFAULT_BOLD);
+                    spellHeader.setText("Spell Slots");
+                    featureHeader.addView(spellHeader);
+                    spellDescription.setText(levelinfo);
+                    featureinfo.addView(spellDescription);
+                    }
                 }
                 FeatureTable.addView(featureHeader);
                 FeatureTable.addView(featureinfo);
@@ -270,7 +305,7 @@ public class FullPlayerClassActivity extends AppCompatActivity {
                 SpellHeader.setLayoutParams(TableRowParams);
                 SpellDescription.setLayoutParams(TableRowParams);
                 if(classDoc.getId().equals("Warlock")) {
-                    ArrayList<String> spellSlots = (ArrayList<String>) classtable.get("spellSlots");
+            /*        ArrayList<String> spellSlots = (ArrayList<String>) classtable.get("spellSlots");
                     TextView spellHeader = new TextView(ClassTable.getContext());
                     TextView spellDescription = new TextView(ClassTable.getContext());
                     spellHeader.setLayoutParams(TableParams);
@@ -283,31 +318,57 @@ public class FullPlayerClassActivity extends AppCompatActivity {
              //       spellHeader.setText(spellslot.getKey());
                     SpellHeader.addView(spellHeader);
                     spellDescription.setText(levelinfo);
-                    SpellDescription.addView(spellDescription);
+                    SpellDescription.addView(spellDescription);*/
                 }
                 else {
                     Map<String, ArrayList<String>> spellSlots = (Map<String, ArrayList<String>>) classtable.get("spellSlots");
-                        for (Map.Entry<String, ArrayList<String>> spellslot : spellSlots.entrySet()) {
-                                TextView spellHeader = new TextView(ClassTable.getContext());
-                                TextView spellDescription = new TextView(ClassTable.getContext());
-                                spellHeader.setLayoutParams(TableParams);
-                                spellDescription.setLayoutParams(TableParams);
-                                levelinfo = "";
-                                ArrayList<String> info = spellslot.getValue();
-                                for (String j : info) {
-                                    levelinfo += j + "\n";
-                                }
-                                spellHeader.setTypeface(Typeface.DEFAULT_BOLD);
-                                spellHeader.setText(spellslot.getKey());
-                                SpellHeader.addView(spellHeader);
-                                spellDescription.setText(levelinfo);
-                                SpellDescription.addView(spellDescription);
+                    for (Map.Entry<String, ArrayList<String>> spellslot : spellSlots.entrySet()) {
+                        if (!(spellslot.getValue().equals(""))) {
+                            TextView spellHeader = new TextView(ClassTable.getContext());
+                            TextView spellDescription = new TextView(ClassTable.getContext());
+                            spellHeader.setLayoutParams(TableParams);
+                            spellDescription.setLayoutParams(TableParams);
+                            levelinfo = "";
+                            ArrayList<String> info = spellslot.getValue();
+                            for (String j : info) {
+                                levelinfo += j + "\n";
+                            }
+                            spellHeader.setTypeface(Typeface.DEFAULT_BOLD);
+                            spellHeader.setText(spellslot.getKey());
+                            SpellHeader.addView(spellHeader);
+                            spellDescription.setText(levelinfo);
+                            SpellDescription.addView(spellDescription);
                         }
+                    }
+                    SpellTable.addView(SpellHeader);
+                    SpellTable.addView(SpellDescription);
                 }
-                SpellTable.addView(SpellHeader);
-                SpellTable.addView(SpellDescription);
-                if(classdata.containsKey("subclass")) {
-                    subclass = (ArrayList<Object>) classdata.get("subclass");
+                for(String key : classdata.keySet()) {
+                    class_data = key;
+                    if(class_data.equals("startingGold")) {
+                        class_data = "Starting Gold";
+                    }
+                    if(class_data.equals("suggestedAbilities")) {
+                        class_data = "Suggested Abilities";
+                    }
+                    class_info = classdata.get(key);
+                    TextView textView1 = new TextView(ClassLayout.getContext());
+                    textView1.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT));
+                    textView1.setText(class_data);
+                    textView1.setTypeface(Typeface.DEFAULT_BOLD);
+                    textView1.setTextColor(Color.parseColor("#6d1b1b"));
+                    textView1.setTextSize(20);
+                    textView1.setPadding(15, 20, 20, 20);// in pixels (left, top, right, bottom)
+                    ClassLayout.addView(textView1);
+                    // Add textview 2
+
+                    TextView textView2 = new TextView(ClassLayout.getContext());
+                    layoutParams.setMargins(15, 10, 10, 10); // (left, top, right, bottom)
+                    textView2.setLayoutParams(layoutParams);
+                    textView2.setText(class_info.toString());
+                    ClassLayout.addView(textView2);
+                }
                     for(int i = 0; i < subclass.size(); i++) {//get all subclass features added to layout
                         if(i == 0 || i ==1 ) {
                             class_data = (String) subclass.get(i);
@@ -357,8 +418,7 @@ public class FullPlayerClassActivity extends AppCompatActivity {
                         textView4.setText(class_data);
                         ClassLayout.addView(textView4);
                     }
-                }
-                if(classdata.containsKey("subClass")) {
+                /*if(!(subClass.isEmpty())) {
                     subclass = subClass;
                     for(int i = 0; i < subclass.size(); i++) {//get all subclass features added to layout
                         if(i == 0 || i ==1 ) {
@@ -410,15 +470,17 @@ public class FullPlayerClassActivity extends AppCompatActivity {
                         textView4.setText(class_data);
                         ClassLayout.addView(textView4);
                     }
-                }
+                }*/
                 TextView textView0 = new TextView(ClassLayout.getContext());
                 textView0.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT));
                 textView0.setText(classDescription);
                 textView0.setTextSize(20);
+                textView0.setTextColor(Color.parseColor("#6d1b1b"));
                 textView0.setTypeface(Typeface.DEFAULT_BOLD);
                 textView0.setPadding(15, 20, 20, 20);// in pixels (left, top, right, bottom)
                 ClassLayout.addView(textView0);
+
                 for(Map<String,String> i : classFeatures) {//get all class features added to layout
                     class_data = i.get("name");
                     TextView textView3 = new TextView(ClassLayout.getContext());
@@ -436,6 +498,7 @@ public class FullPlayerClassActivity extends AppCompatActivity {
                     textView4.setText(class_data);
                     ClassLayout.addView(textView4);
                 }
+
             }
         });
     }
