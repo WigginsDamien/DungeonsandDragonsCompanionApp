@@ -88,8 +88,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getBaseContext(), "File saved successfully!",
                     Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
-            Log.e("Exception", "File write failed: " + e.toString());
-        }
+            Log.e("Exception", "File write failed: " + e.toString());        }
     }
 
 }
